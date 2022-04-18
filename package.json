@@ -7,14 +7,38 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "emailjs": "^3.8.0",
+    "emailjs-com": "^3.2.0",
+    "file-saver": "^2.0.5",
+    "framer-motion": "^6.2.9",
+    "gray-matter": "^4.0.3",
     "next": "latest",
+    "next-images": "^1.8.4",
+    "next-themes": "^0.1.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-canvas-draw": "^1.2.1",
+    "react-color": "^2.19.3",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.30.0",
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.2",
+    "react-notifications-component": "^3.4.1",
+    "react-scrollbars-custom": "^4.0.27",
+    "react-slick": "^0.29.0",
+    "react-switch": "^6.0.0",
+    "reactjs-popup": "^2.0.5",
+    "recoil": "^0.7.0",
+    "slick-carousel": "^1.8.1",
+    "tailwind-group-even-odd": "^1.0.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
+    "@tailwindcss/forms": "^0.5.0",
     "@types/node": "^12.12.21",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "postcss-preset-env": "^7.4.3",
+    "tailwindcss": "^3.0.23",
     "typescript": "4.0"
   }
 }

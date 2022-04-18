@@ -1,0 +1,92 @@
+import React, { useState } from "react";
+import Scrollbar from "react-scrollbars-custom";
+import { resumeItems } from "../utils/data";
+import { getYearsInArray } from "../utils/functions";
+import { motion } from "framer-motion";
+import AnimateLetter from "../components/Contact/AnimateLetter";
+import AnimatedWord from "../components/shared/AnimatedWord";
+
+export default function Resume() {
+  const years = getYearsInArray(resumeItems);
+  const resumeYearsArr = years.map((year, index) => {
+    return {
+      year: year,
+      entries: resumeItems.filter((item) => item.year === year),
+    };
+  });
+
+  const scaleProps = [1, 1.05, 1];
+
+  // const scrollbarRef = React.createRef();
+
+  return (
+    <Scrollbar className="h-full">
+      <div className="h-full overflow-auto space-y-8 flex flex-col items-center justify-center m-8">
+        <h1 className="text-secondary dark:text-secondary-dark text-6xl font-bold flex">
+          <AnimatedWord word="Experiences" />
+        </h1>
+
+        <div className="h-full">
+          {resumeYearsArr.map((year, index) => {
+            return (
+              <div
+                className="p-5 flex flex-col align-around relative group"
+                key={index}
+              >
+                <div
+                  className="absolute right-1/2 top-0 h-full w-0.5 z-0 
+                              bg-accent dark:bg-secondary"
+                ></div>
+                <h1
+                  className="self-center text-3xl bg-primary dark:bg-primary-dark p-2 px-4 
+                          text-accent dark:border-b-secondary
+                            border-b-4 border-accent z-10 shadow-lg"
+                >
+                  {year.year}
+                </h1>
+                <div className="flex flex-col">
+                  {year.entries.map((entry, index) => {
+                    return (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        // viewport={{ once: true }}
+                        className="relative even:self-end odd:self-start w-1/2 
+                                flex odd:flex-row-reverse items-center
+                                group-even:self-end group-even:only:flex-row 
+                                group-even:even:self-start group-even:even:flex-row-reverse group-even:odd:flex-row"
+                      >
+                        <span
+                          className="block w-1/2 h-0.5 bg-accent dark:bg-secondary"
+                          aria-hidden="true"
+                        ></span>
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1, scale: scaleProps }}
+                          className="flex flex-col p-5
+                          bg-gray-dark bg-primary dark:bg-primary-dark border-b-4 border-accent-dark
+                          dark:border-b-secondary
+                          text-secondary shadow-lg"
+                        >
+                          <h2 className="self-center text-3xl text-accent">
+                            {entry.title}
+                          </h2>
+                          <h3 className="self-center text-xl text-highlight">
+                            {entry.location}
+                          </h3>
+                          <p className="dark:text-secondary-dark">
+                            {entry.description}
+                          </p>
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </Scrollbar>
+  );
+}

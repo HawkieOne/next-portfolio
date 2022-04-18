@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-color-image {
+    background-image: url("/images/bg_detail.png");
+    background: #282828;
+  }
+}
+
+
+/*------------------------------*/
+/*--- Drawing transparency -----*/
+/*------------------------------*/
+.drawing {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*------------------------------*/
+/*---------- Cursor ------------*/
+/*------------------------------*/
+.cursor {
+  /* position: fixed; */
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 3px;
+  background: teal;
+  mix-blend-mode: difference;
+  background-color: white;
+}
+
+.trail { /* className for the trail elements */
+  position: absolute;
+  /* height: 6px; width: 6px; */
+  border-radius: 50%;
+  box-shadow: 10px 8px 4px 2px teal;
+  background: teal;
+}
+
+.no-cursor {
+  cursor: none;
+  pointer-events: none;
+}
+
+
+/*------------------------------*/
+/*---------- Markdown ----------*/
+/*------------------------------*/
+
+.markdown ul,
+ol {
+  font-size: 110%;
+  line-height: 2.3;
+  /* font-weight: bold; */
+  list-style-type: disc;
+}
+
+.markdown li {
+  margin-left: 20px;
+}
+
+.markdown pre {
+  background: #f4f4f4;
+  padding: 20px;
+  margin: 20px 0;
+  line-height: 2.3;
+}
+
+.markdown h2 {
+  font-size: 150%;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.markdown h3 {
+  font-size: 120%;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.markdown a:hover {
+  color: #fc5185;
+}
+
+/*------------------------------*/
+/*---------- Other -------------*/
+/*------------------------------*/
