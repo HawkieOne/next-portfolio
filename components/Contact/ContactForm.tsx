@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import IconButton from "./IconButton";
 import { showError, showSuccess } from "../../utils/notificationsFunctions";
-// import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
+import Error from "../shared/Error";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -11,56 +12,62 @@ export default function ContactForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onBlur",
+  });
 
-  const handleSubmit = (event) => {
-    console.log(name + " " + email);
-    event.preventDefault();
-    const validatedForm = validateForm();
-    if (validatedForm) {
-      const variables = {
-        from_email: email,
-        from_name: name,
-        message: message,
-      };
-      emailjs
-        .send(
-          "service_h71mex8",
-          "template_bz87pmk",
-          variables,
-          "user_vSPVPiTGQL2Mi0PApx4ia"
-        )
-        .then((res) => {
-          console.log("Email successfully sent!");
-          showSuccess("Email successfully sent!");
-          event.target.reset();
-        })
-        .catch((err) => {
-          console.error(
-            "Oh well, you failed. Here some thoughts on the error that occured:",
-            err
-          );
-          showError("Email could not be sent!")
-        });
-    }
+  const registerOptions = {
+    name: { required: "Name is required" },
+    email: {
+      required: "Email is required",
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: "Invalid email address",
+      },
+    },
+    subject: { required: "Subject is required" },
+    message: { required: "Message is required" },
   };
 
-  const validateForm = () => {
-    if (name == "" || email == "" || subject == "" || message == "") {
-      showError("Please fill all the fields");
-      console.log("NOT VALID");
-      return false;
-    }
-    return true;
-  };  
+  const onSubmit = (event) => {
+    console.log(name + " " + email);
+    event.preventDefault();
+    const variables = {
+      from_email: email,
+      from_name: name,
+      message: message,
+    };
+    emailjs
+      .send(
+        "service_h71mex8",
+        "template_bz87pmk",
+        variables,
+        "user_vSPVPiTGQL2Mi0PApx4ia"
+      )
+      .then((res) => {
+        console.log("Email successfully sent!");
+        showSuccess("Email successfully sent!");
+        event.target.reset();
+      })
+      .catch((err) => {
+        console.error(
+          "Oh well, you failed. Here some thoughts on the error that occured:",
+          err
+        );
+        showError("Email could not be sent!");
+      });
+  };
 
   return (
     <div className="flex justify-center items-center">
-      <form className="flex flex-col space-y-4 w-4/5" onSubmit={handleSubmit}>
+      <form
+        className="flex flex-col space-y-4 w-4/5"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="flex justify-between space-x-4">
           <motion.div
             animate={{ x: [-100, 0] }}
@@ -70,10 +77,12 @@ export default function ContactForm() {
             <input
               type="text"
               placeholder="Name"
+              {...register("name", registerOptions.name)}
               onChange={(e) => setName(e.target.value)}
               className="bg-primary border border-secondary text-secondary placeholder-gray-400 focus:ring-teal-500 w-full p-2
                           dark:bg-primary-dark dark:text-secondary-dark"
             ></input>
+            <Error errors={errors?.name} />
           </motion.div>
           <motion.div
             animate={{ x: [100, 0] }}
@@ -82,11 +91,17 @@ export default function ContactForm() {
           >
             <input
               type="text"
+              {...register("email", registerOptions.email)}
               placeholder="Mail"
               onChange={(e) => setEmail(e.target.value)}
               className="bg-primary border border-secondary  text-secondary placeholder-gray-400 focus:ring-teal-500 w-full p-2
                         dark:bg-primary-dark dark:text-secondary-dark"
             ></input>
+            <div className="text-error dark:text-error-dark text-xs">
+              {errors.email?.type === "required" && errors.email.message}
+              {errors.email?.type === "pattern" && errors.email.message}
+            </div>
+            {errors.email?.type === "required" ? <Error errors={errors?.subject}: null}
           </motion.div>
         </div>
 
@@ -96,11 +111,13 @@ export default function ContactForm() {
         >
           <input
             type="text"
+            {...register("subject", registerOptions.subject)}
             placeholder="Subject"
             onChange={(e) => setSubject(e.target.value)}
             className="bg-primary border border-secondary text-secondary placeholder-gray-400 focus:ring-teal-500 w-full p-2
                       dark:bg-primary-dark dark:text-secondary-dark"
           ></input>
+          <Error errors={errors?.subject} />
         </motion.div>
 
         <motion.div
@@ -110,11 +127,13 @@ export default function ContactForm() {
           <textarea
             placeholder="Message"
             rows={5}
+            {...register("message", registerOptions.message)}
             onChange={(e) => setMessage(e.target.value)}
             maxLength={500}
             className="bg-primary border border-secondary text-secondary placeholder-gray-400 focus:ring-teal-500 
                         resize-none w-full p-2 dark:bg-primary-dark dark:text-secondary-dark"
           ></textarea>
+          <Error errors={errors?.message} />
         </motion.div>
 
         <IconButton
