@@ -17,6 +17,8 @@ module.exports = {
         "accent": "#3FC1C9",
         "accent-dark": "#00ADB5",
         "highlight": "#FC5185",
+        "error": "#ff0000",
+        "error-dark": "#BF616A"
       },
     },
   },
