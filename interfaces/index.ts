@@ -17,6 +17,10 @@ export type FooterItem = {
   link: string,
 }
 
+export type Link = {
+  link: string,
+}
+
 export type ResumeItem = {
   title: string,
   location: string,
