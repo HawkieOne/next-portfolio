@@ -4,8 +4,7 @@ import Head from "next/head";
 
 import "../styles/index.css";
 import "react-notifications-component/dist/theme.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+  import 'fullpage.js/dist/fullpage.css'
 import Sidebar from "../components/Sidebar/Sidebar";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "next-themes";
@@ -20,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider enableSystem={true} attribute="class">
         <ReactNotifications />
         {/* <div className="h-screen bg-pattern bg-primary flex justify-start"> */}
-        <div className="h-screen bg-primary dark:bg-primary-dark flex justify-start">
+        <div className="h-screen bg-primary dark:bg-primary-dark flex justify-start quicksand">
           <Sidebar />
           <main className="h-full w-full">
             <Component {...pageProps} />
