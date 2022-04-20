@@ -19,7 +19,7 @@ module.exports = {
         "highlight": "#FC5185",
         "error": "#ff0000",
         "error-dark": "#BF616A",
-        "overlay": "rgba(0,0,0, 0.7)"
+        "overlay": "rgba(0,0,0, 0.2)"
       },
     },
   },
