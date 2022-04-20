@@ -11,7 +11,7 @@ import { useTheme } from "next-themes";
 
 export default function DrawArea() {
   const drawRef = useRef(null);
-  const [color, setColor] = useState("#B80000");
+  const [color, setColor] = useState("#000");
 
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
@@ -78,6 +78,11 @@ export default function DrawArea() {
           >
             <GithubPicker
               color={color}
+              colors={['#B80000', '#DB3E00', '#FCCB00', '#008B02', 
+                       '#006B76', '#1273DE', '#004DCF', '#5300EB', 
+                       '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', 
+                       '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB',
+                       '#fff', '#000']}
               onChangeComplete={changeColor}
               triangle="hide"
             />
