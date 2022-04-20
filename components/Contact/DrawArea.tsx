@@ -8,6 +8,7 @@ import { showError, showSuccess } from "../../utils/notificationsFunctions";
 import Popup from "reactjs-popup";
 import { GithubPicker } from "react-color";
 import { useTheme } from "next-themes";
+import axios from "axios";
 
 export default function DrawArea() {
   const drawRef = useRef(null);
@@ -15,7 +16,7 @@ export default function DrawArea() {
 
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const canvasColor = (currentTheme === 'dark' ? "#222831" : "#fff");
+  const canvasColor = currentTheme === "dark" ? "#222831" : "#fff";
 
   const download = () => {
     saveAs(drawRef.current.getDataURL(), "drawing.jpg");
@@ -27,32 +28,49 @@ export default function DrawArea() {
     drawRef.current.undo();
   };
   const send = () => {
+    // const variables = {
+    //   from_email: "lindahl9898@gmail.com",
+    //   from_name: "Håkan",
+    //   message: "Test",
+    //   content: drawRef.current.getDataURL(),
+    //   attachment: [
+    //     { data: '<img src="canvas" alt="My Impression" />', alternative: true },
+    //   ],
+    // };
+    // emailjs
+    //   .send(
+    //     "service_h71mex8",
+    //     "template_bz87pmk",
+    //     variables,
+    //     "user_vSPVPiTGQL2Mi0PApx4ia"
+    //   )
+    //   .then((res) => {
+    //     showSuccess("Email is sent!");
+    //     console.log("Email successfully sent!");
+    //   })
+    //   .catch((err) => {
+    //     showError("Something went wrong!");
+    //     console.error(
+    //       "Oh well, you failed. Here some thoughts on the error that occured:",
+    //       err
+    //     );
+    //   });
+
     const variables = {
-      from_email: "lindahl9898@gmail.com",
-      from_name: "Håkan",
-      message: "Test",
-      content: drawRef.current.getDataURL(),
-      attachment: [
-        { data: '<img src="canvas" alt="My Impression" />', alternative: true },
-      ],
+      content: drawRef.current.getDataURL('image/jpeg'),
     };
-    emailjs
-      .send(
-        "service_h71mex8",
-        "template_bz87pmk",
-        variables,
-        "user_vSPVPiTGQL2Mi0PApx4ia"
-      )
+
+    // https://hakanlindahl.com/server
+    axios({
+      method: "post",
+      url: "http://localhost:9000/server",
+      data: variables,
+    })
       .then((res) => {
-        showSuccess("Email is sent!");
-        console.log("Email successfully sent!");
+        console.log(res);
       })
       .catch((err) => {
-        showError("Something went wrong!");
-        console.error(
-          "Oh well, you failed. Here some thoughts on the error that occured:",
-          err
-        );
+        console.log(err);
       });
   };
 
@@ -78,11 +96,26 @@ export default function DrawArea() {
           >
             <GithubPicker
               color={color}
-              colors={['#B80000', '#DB3E00', '#FCCB00', '#008B02', 
-                       '#006B76', '#1273DE', '#004DCF', '#5300EB', 
-                       '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', 
-                       '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB',
-                       '#fff', '#000']}
+              colors={[
+                "#B80000",
+                "#DB3E00",
+                "#FCCB00",
+                "#008B02",
+                "#006B76",
+                "#1273DE",
+                "#004DCF",
+                "#5300EB",
+                "#EB9694",
+                "#FAD0C3",
+                "#FEF3BD",
+                "#C1E1C5",
+                "#BEDADC",
+                "#C4DEF6",
+                "#BED3F3",
+                "#D4C4FB",
+                "#fff",
+                "#000",
+              ]}
               onChangeComplete={changeColor}
               triangle="hide"
             />
@@ -103,7 +136,7 @@ export default function DrawArea() {
       </div>
 
       {/* Buttons */}
-      
+
       <div className="flex justify-around">
         <IconButton
           type="button"
