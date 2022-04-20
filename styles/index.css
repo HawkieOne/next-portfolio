@@ -9,6 +9,27 @@
   }
 }
 
+/*------------------------------*/
+/*----------- FONTS ------------*/
+/*------------------------------*/
+@font-face {
+  font-family: "bebas";
+  src: local("bebas"), url("../assets/fonts/Bebas.ttf") format("truetype");
+  font-weight: lighter;
+}
+@font-face {
+  font-family: "quicksand";
+  src: local("quicksand"), url("../assets/fonts/Quicksand.ttf") format("truetype");
+  font-weight: lighter;
+}
+
+.quicksand {
+  font-family: quicksand;
+}
+
+.bebas {
+  font-family: bebas;
+}
 
 /*------------------------------*/
 /*--- Drawing transparency -----*/
@@ -71,6 +92,12 @@ ol {
   list-style-type: disc;
 }
 
+.markdown ul {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+}
+
 .markdown li {
   margin-left: 20px;
 }
@@ -97,6 +124,22 @@ ol {
 .markdown a:hover {
   color: #fc5185;
 }
+
+/*------------------------------*/
+/*---------- fullpageJS overrides -------------*/
+/*------------------------------*/
+
+#fp-nav ul li:hover a.active span,
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li:hover a.active span,
+.fp-slidesNav ul li a.active span {
+  background-color: #3FC1C9;
+}
+
+#fp-nav ul li a span, 
+	.fp-slidesNav ul li a span{
+		background: white;
+	}
 
 /*------------------------------*/
 /*---------- Other -------------*/
