@@ -22,9 +22,13 @@ export default function Resume() {
   return (
     <Scrollbar className="h-full">
       <div className="h-full overflow-auto space-y-8 flex flex-col items-center justify-center m-8">
-        <h1 className="text-secondary dark:text-secondary-dark text-6xl font-bold flex">
-          <AnimatedWord word="Experiences" />
-        </h1>
+        <div className="flex justify-center space-x-4 items-center">
+          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+          <h1 className="text-secondary dark:text-secondary-dark text-6xl font-bold flex">
+            <AnimatedWord word="Experiences" />
+          </h1>
+          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+        </div>
 
         <div className="h-full">
           {resumeYearsArr.map((year, index) => {
