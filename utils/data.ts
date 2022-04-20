@@ -1,4 +1,4 @@
-import { ColourOption, FooterItem, User } from '../interfaces'
+import { ColourOption, FooterItem, Link, User } from '../interfaces'
 import { HeaderItem } from '../interfaces'
 import { ResumeItem } from '../interfaces'
 import { faHouse, faIdBadge, faUsersRectangle, faAddressCard } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +10,18 @@ export const headerItems: HeaderItem[] = [
   { text: 'Projects', link: "/projects" },
   { text: 'Contact', link: "/contact" },
 ]
+
+export const linkedIn: Link = {
+  link: 'https://www.linkedin.com/in/hakanlindahl/',
+}
+
+export const facebook: Link = {
+  link: 'https://www.facebook.com/hakan.lindahl.58/',
+}
+
+export const github: Link = {
+  link: 'https://github.com/HawkieOne',
+}
 
 // export const footerItems = [
 //   { icon: <FaFacebookF/>, link: "https://www.facebook.com/hakan.lindahl.58/"},
