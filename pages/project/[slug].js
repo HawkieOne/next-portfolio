@@ -24,7 +24,7 @@ export default function PostPage({
         <div className="w-4/6 space-y-6 m-8">
           <Link href="/projects">
             <a
-              className="bg-highlight text-white border-none px-4 py-2 rounded-lg cursor-pointer
+              className="bg-accent text-secondary border-none px-4 py-2 rounded-lg cursor-pointer
                         text-xl self-start"
             >
               Go Back
@@ -47,13 +47,6 @@ export default function PostPage({
               <ReactMarkdown children={content}></ReactMarkdown>
             </div>
           </div>
-          <a
-            className="bg-highlight text-white border-none px-4 py-2 rounded-lg cursor-pointer
-                        text-xl self-end"
-            onClick={scrollToTop}
-          >
-            Scroll to top
-          </a>
         </div>
       </section>
     </Scrollbar>
