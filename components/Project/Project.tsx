@@ -1,54 +1,93 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function Project({ project }) {
-  const [hover, setHover] = useState(false);
-
+export default function Project({ project, index, state }) {
   return (
-    <Link href={`/project/${project.slug}`} passHref>
-      <div
-        className="flex flex-col overflow-hidden shadow-lg bg-primary dark:bg-primary-dark
-                    text-secondary relative
-                      h-full cursor-pointer"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div className="relative overflow-hidden m-w-full w-full group">
-          <img
-            className="m-w-full w-full group-hover:scale-125 group-hover:skew-x-12"
-            src={project.frontmatter.cover_image}
-            alt="Project Image"
-          />
-        </div>
-        {hover ? (
-          <div
-            className="bg-overlay absolute top-1/2 right-1/2 flex 
-                            flex-col items-center justify-center"
-          >
-            <p className="text-3xl font-bold text-accent bg-primary-dark p-4 rounded-xl">
-              {project.frontmatter.title}
-            </p>
-          </div>
-        ) : null}
-        {/* <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2 text-teal-600">
-            {project.frontmatter.title}
-          </div>
-          <p className="text-base dark:text-secondary-dark">{project.frontmatter.excerpt}</p>
-        </div> */}
-        {/* <div className="px-6 py-4">
-          <div className="font-bold text-md mb-2 text-red-300">
-            Created {project.frontmatter.date}
-          </div>
-        </div> */}
-        {/* <div className="px-6 pt-4 pb-2">
+    <div className="flex flex-col px-8 space-y-2">
+      <div className="flex flex-col space-y-6">
+        <h1 className="font-bold text-8xl text-accent">
+          {project.frontmatter.title}
+        </h1>
+        <h3 className="w-2/3">{project.frontmatter.excerpt}</h3>
+        <div className="flex space-x-6">
           <Link href={`/project/${project.slug}`} passHref>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 cursor-pointer">
+            <button
+              className="bg-accent px-6 py-2 text-secondary font-bold rounded-xl self-start
+                          hover:scale-110"
+            >
               Read more
-            </span>
+            </button>
           </Link>
-        </div> */}
+          {project.frontmatter.demo && (
+            <a href={project.frontmatter.demo}  target="_blank" rel="noreferrer">
+              <button
+                className="bg-highlight px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                        hover:scale-110"
+              >
+                Demo
+              </button>
+            </a>
+          )}
+          {project.frontmatter.github && (
+            <a href={project.frontmatter.github}  target="_blank" rel="noreferrer">
+              <button
+                className="bg-secondary px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                        hover:scale-110"
+              >
+                GitHub
+              </button>
+            </a>
+          )}
+          {project.frontmatter.link && (
+            <a href={project.frontmatter.link}  target="_blank" rel="noreferrer">
+              <button
+                className="bg-primary-dark px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                        hover:scale-110"
+              >
+                Link
+              </button>
+            </a>
+          )}
+        </div>
+        <div className="flex flex-col space-y-4 mt-4">
+          <span className="rounded-md w-48 h-1 bg-highlight"></span>
+          <span className="rounded-md w-48 h-1 ml-8 bg-accent"></span>
+          <span className="rounded-md w-48 h-1 bg-highlight"></span>
+        </div>
       </div>
-    </Link>
+
+      <img
+        className="w-5/12 self-center rounded-lg"
+        src={project.frontmatter.cover_image}
+        alt="Project Image"
+      />
+
+      <div className="flex flex-col space-y-8 self-end">
+        <div className="flex flex-col space-y-4 self-start">
+          <span className="rounded-md w-48 h-1 ml-8 bg-highlight"></span>
+          <span className="rounded-md w-48 h-1 bg-accent"></span>
+          <span className="rounded-md w-48 h-1 ml-8 bg-highlight"></span>
+        </div>
+        <h2 className="font-bold text-9xl text-accent self-end">0{index}</h2>
+      </div>
+
+      {index < state.sectionCount - 1 ? (
+        <div className="absolute bottom-2 right-1/2 flex space-x-4 items-center">
+          <p>Scroll down</p>
+          <motion.div
+          animate={{ y: [-5, 0] }}
+          transition={{
+            ease: "anticipate",
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 0.5,
+            repeatDelay: 0.5,
+          }}>
+            <img src="svg/download.svg" alt="" />
+          </motion.div>
+        </div>
+      ) : null}
+    </div>
   );
 }
