@@ -2,7 +2,7 @@
 title: 'Radio Information'
 date: 'March 4, 2021'
 excerpt: 'A program which shows a radio schedule fetched from SR:s public API'
-cover_image: '/images/projects/cryptodashboard.png'
+cover_image: '/images/projects/spotifyBig.png'
 ---
 
 Radio Info is a program that fetches data from SR(Sveriges Radio) public API to show a scehdule over radio programs. Both passed programs 

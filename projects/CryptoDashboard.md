@@ -2,7 +2,7 @@
 title: 'Crypto Dashboard'
 date: 'March 4, 2021'
 excerpt: 'A simple web app to convert between different crypto currencies'
-cover_image: '/images/projects/cryptodashboard.png'
+cover_image: '/images/projects/spotifyBig.png'
 ---
 
 A simple web app to convert between different crypto currencies. The appllication uses Axios and React to fetchg data from an API about the exchange rates. Due to the

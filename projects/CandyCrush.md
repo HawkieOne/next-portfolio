@@ -2,7 +2,7 @@
 title: 'Candy Crush'
 date: 'March 4, 2021'
 excerpt: 'A small game which works as candy crush. Match the candies of the same color and try to get as highs core as possible!'
-cover_image: '/images/projects/spotify.png'
+cover_image: '/images/projects/spotifyBig.png'
 ---
 
 A small game which works as candy crush. Match the candies of the same color and try to get as highs core as possible! The game is made with React and uses HTMl 
