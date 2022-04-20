@@ -3,6 +3,7 @@ title: 'Kattis'
 date: 'March 4, 2021'
 excerpt: 'A website where I have solved many programming tasks'
 cover_image: '/images/projects/spotifyBig.png'
+link: 'https://open.kattis.com/users/hakan-lindahl'
 ---
 
 I have since I started at the university been solving problems on Kattis. These problems have been of varying degrees. They are not yet uploaded to 

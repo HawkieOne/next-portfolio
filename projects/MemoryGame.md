@@ -3,6 +3,7 @@ title: 'Memory Game'
 date: 'March 4, 2021'
 excerpt: 'A simple memory game'
 cover_image: '/images/projects/spotifyBig.png'
+github: 'https://github.com/HawkieOne/memorygame'
 ---
 
 A simple memory game. Match the same cards in as few turns as possible. The web application is built with React and was made to improve my knowledge of states

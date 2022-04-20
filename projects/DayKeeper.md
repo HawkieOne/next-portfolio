@@ -3,6 +3,7 @@ title: 'DayKeeper'
 date: 'March 4, 2021'
 excerpt: 'An android application for keeping track of your memories'
 cover_image: '/images/projects/spotifyBig.png'
+github: 'https://github.com/HawkieOne/DaykeeperMobile'
 ---
 
 An android application for keeping track of your memories. The purpose of the app is to help people remember thing they otherwise would forget. 

@@ -3,6 +3,7 @@ title: 'Thirty'
 date: 'March 4, 2021'
 excerpt: 'A mobile dice game which rules are similar to Yatzy'
 cover_image: '/images/projects/spotifyBig.png'
+github: 'https://github.com/HawkieOne/thirty'
 ---
 
 Thirty is a mobile game which is similar to Yatzy. It was my very first application made on Android. The app is very simple but I am still very proud of it

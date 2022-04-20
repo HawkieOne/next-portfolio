@@ -3,6 +3,7 @@ title: 'Spotify Clone'
 date: 'Autumn 2022'
 excerpt: 'A visual clone of Spotify web app to improve my skills in frontend development'
 cover_image: '/images/projects/spotifyBig.png'
+github: 'https://github.com/HawkieOne/spotify-clone'
 ---
 
 A visual clone of Spotify web app to improve my skills in frontend development. The web applciation mimics the UI of Spotify
