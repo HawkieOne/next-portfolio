@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import WelcomeText from "../components/Home/WelcomeText";
-// import CV from "../assets/CV.pdf";
 
 const IndexPage = () => {
-
   const dirsX = [
     [-200, 0],
     // [0, 0],
@@ -41,7 +39,7 @@ const IndexPage = () => {
           <img src={"/svg/send.svg"} />
         </motion.div>
         <a
-          // href={CV}
+          href="/CV/CV.pdf"
           title=""
           download
           className="p-4 shadow-lg rounded-md cursor-pointer
@@ -54,13 +52,18 @@ const IndexPage = () => {
       <div className="h-screen relative flex items-end">
         {/* <Canvas draw={draw} options={{}} /> */}
         <motion.div
-          animate={{ x: randomXDir, y: randomYDir }}
+          // animate={{ x: randomXDir, y: randomYDir }}
+          // transition={{
+          //   ease: "anticipate",
+          //   repeat: Infinity,
+          //   repeatType: "mirror",
+          //   duration: 1,
+          //   repeatDelay: 4,
+          // }}
+          animate={{ opacity: [0, 1], }}
           transition={{
             ease: "anticipate",
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 1,
-            repeatDelay: 4,
+            duration: 2,
           }}
           className="basis-1/2 h-3/4 bg-primary dark:bg-primary-dark"
         >
@@ -69,9 +72,9 @@ const IndexPage = () => {
             alt="drawing of me"
             className="mix-blend-multiply dark:mix-blend-luminosity h-full
                       slidingImg"
-          />        
+          />
         </motion.div>
-        <div className="self-center">
+        <div className="self-center space-y-8">
           <WelcomeText />
         </div>
       </div>
