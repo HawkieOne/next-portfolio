@@ -41,29 +41,42 @@ export default function Projects({ projects }) {
   };
 
   return (
-    <Scrollbar className="h-full">
-      <motion.div className="h-full flex flex-col justify-center items-center m-10 space-y-8">
+    <Scrollbar className="h-screen">
+      <motion.div className="h-full flex flex-col justify-center items-center my-8 space-y-8">
         <div className="text-center text-secondary dark:text-secondary-dark text-5xl">
           <h1 className="text-secondary dark:text-secondary-dark text-6xl font-bold flex">
             <AnimatedWord word="Projects" />
           </h1>
         </div>
-        {/* <motion.div
+        <p className="w-3/5 text-secondary dark:text-secondary-dark">
+          Here are some of the projects that I have worked with. Some of them
+          are personal projects and some of them are work related. To see more
+          of what I have done take a look at my{" "}
+          <a
+            href="https://github.com/HawkieOne"
+            className="text-highlight"
+            target="_blank" rel="noreferrer"
+          >
+            Github
+          </a>
+        </p>
+        <motion.div
           animate={{ opacity: [0, 1] }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-4 gap-6 justify-center items-baseline"
+          className="grid grid-cols-3 justify-center items-baseline"
         >
           {projects.map((project, index) => (
             <Project key={index} project={project} />
           ))}
-        </motion.div> */}
-        <div className="w-3/4">
+        </motion.div>
+
+        {/* <div className="w-3/4">
           <Slider {...settings}>
             {projects.map((project, index) => (
               <Project key={index} project={project} />
             ))}
           </Slider>
-        </div>
+        </div> */}
       </motion.div>
     </Scrollbar>
   );
