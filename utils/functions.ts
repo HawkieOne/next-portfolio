@@ -1,7 +1,7 @@
 import { ResumeItem } from "../interfaces";
 
-export const sortByDate = (a: Object, b: Object) => {
-  return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+export const sortByDate = (a: any, b: any) => {
+  return new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf();
 };
 
 export const getYearsInArray = (objArray: ResumeItem[]) => {
