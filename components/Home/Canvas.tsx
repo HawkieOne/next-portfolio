@@ -8,7 +8,6 @@ export default function Canvas(props) {
   const { context, ...moreConfig } = options
 
   useEffect(() => {
-    console.log("CANVAS");
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     draw(context, canvas);
