@@ -97,11 +97,8 @@ export default function ContactForm() {
               className="bg-primary border border-secondary  text-secondary placeholder-gray-400 focus:ring-teal-500 w-full p-2
                         dark:bg-primary-dark dark:text-secondary-dark"
             ></input>
-            <div className="text-error dark:text-error-dark text-xs">
-              {errors.email?.type === "required" && errors.email.message}
-              {errors.email?.type === "pattern" && errors.email.message}
-            </div>
-            {errors.email?.type === "required" ? <Error errors={errors?.subject}: null}
+            {errors.email?.type === "required" ? <Error errors={errors?.email} /> : null}
+            {errors.email?.type === "pattern" ? <Error errors={errors?.email} /> : null}
           </motion.div>
         </div>
 
