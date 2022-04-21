@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 /server/node_modules
+/.next
+/_static
 /.pnp
 .pnp.js
 
