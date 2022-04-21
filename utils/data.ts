@@ -1,7 +1,6 @@
 import { ColourOption, FooterItem, Link, User } from '../interfaces'
 import { HeaderItem } from '../interfaces'
 import { ResumeItem } from '../interfaces'
-import { faHouse, faIdBadge, faUsersRectangle, faAddressCard } from '@fortawesome/free-solid-svg-icons'
 import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export const headerItems: HeaderItem[] = [
