@@ -29,7 +29,8 @@ export default function ModeSwitch() {
         onClick={onButtonClick}
         className="bg-primary border border-secondary p-3 rounded-lg shadow-lg
                   flex flex-col justify-center items-center spaxe-y-2
-                  dark:bg-primary-dark dark:border-accent-dark"
+                  dark:bg-primary-dark dark:border-accent-dark
+                  hover:scale-110 hover:border-accent-dark dark:hover:border-highlight"
         title="Press to change mode"
       >
         {isDarkMode ? (

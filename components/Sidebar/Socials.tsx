@@ -17,7 +17,7 @@ export default function Socials() {
         {footerItems.map((item, index) => (
           <a href={item.link} key={index} target="_blank" rel="noreferrer">
           <div              
-            className="flex items-center m-3 space-x-2 text-secondary hover:text-accent
+            className="flex items-center m-2 text-secondary hover:text-accent
                        cursor-pointer dark:hover:text-highlight
                      dark:text-secondary-dark"
           >

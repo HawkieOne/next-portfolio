@@ -43,13 +43,14 @@ const IndexPage = () => {
           title=""
           download
           className="p-4 shadow-lg rounded-md cursor-pointer
-                  border border-secondary dark:border-accent-dark"
+                  border border-secondary dark:border-accent-dark
+                  hover:scale-105 hover:border-accent-dark dark:hover:border-highlight"
         >
           Download CV
         </a>
       </div>
 
-      <div className="h-screen relative flex items-end">
+      <div className="h-screen relative flex flex-col-reverse lg:flex-row items-end">
         {/* <Canvas draw={draw} options={{}} /> */}
         <motion.div
           // animate={{ x: randomXDir, y: randomYDir }}
@@ -60,7 +61,7 @@ const IndexPage = () => {
           //   duration: 1,
           //   repeatDelay: 4,
           // }}
-          animate={{ opacity: [0, 1], }}
+          animate={{ opacity: [0, 1] }}
           transition={{
             ease: "anticipate",
             duration: 2,
@@ -71,7 +72,7 @@ const IndexPage = () => {
             src="images/drawing.png"
             alt="drawing of me"
             className="mix-blend-multiply dark:mix-blend-luminosity h-full
-                      slidingImg"
+                      slidingImg pl-4"
           />
         </motion.div>
         <div className="self-center space-y-8">

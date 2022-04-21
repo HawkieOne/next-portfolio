@@ -5,11 +5,13 @@ import ModeSwitch from "./ModeSwitch";
 import Profile from "./Profile";
 import SidebarLink from "./SidebarLink";
 import Socials from "./Socials";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export default function Header() {
   return (
-    <aside className="h-full flex flex-col justify-between items-center bg-primary dark:bg-primary-dark 
-                      border-r border-r-secondary dark:border-r-accent-dark">
+    <aside className="h-full flex-col justify-between items-center bg-primary dark:bg-primary-dark 
+                      border-r border-r-secondary dark:border-r-accent-dark hidden lg:flex">
+      <AiOutlineMenu className="text-4xl self-start p-1"/>
       <Profile />
       {/* <div className="flex flex-col justify-center divide-y divide-secondary border-y border-secondary"> */}
       <div className="flex flex-col justify-center">

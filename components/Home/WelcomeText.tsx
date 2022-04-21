@@ -4,7 +4,8 @@ import AnimatedWord from "../shared/AnimatedWord";
 
 export default function WelcomeText() {
   return (
-    <div className="text-secondary dark:text-secondary-dark text-6xl leading-relaxed basis-1/">
+    <div className="text-secondary dark:text-secondary-dark text-xl lg:leading-relaxed basis-1/
+                    md:text-4xl lg:text-6xl">
         
       <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1 }}>
         <AnimatedWord word="Hi," />

@@ -4,7 +4,7 @@ import Head from "next/head";
 
 import "../styles/index.css";
 import "react-notifications-component/dist/theme.css";
-  import 'fullpage.js/dist/fullpage.css'
+import "fullpage.js/dist/fullpage.css";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "next-themes";
