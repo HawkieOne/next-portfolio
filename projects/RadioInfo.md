@@ -1,8 +1,8 @@
 ---
-title: 'Radio Information'
+title: 'Radio Info'
 date: 'March 4, 2021'
 excerpt: 'A program which shows a radio schedule fetched from SR:s public API'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: '/images/projects/radioinfo.png'
 github: 'https://github.com/HawkieOne/radioinfo'
 ---
 

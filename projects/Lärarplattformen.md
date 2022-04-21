@@ -2,7 +2,7 @@
 title: 'Lärarplattformen'
 date: 'March 4, 2021'
 excerpt: 'A web application for teachers to easier manage courses at universities'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: '/images/projects/lp.png'
 demo: 'error'
 ---
 

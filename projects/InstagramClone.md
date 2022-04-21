@@ -2,7 +2,7 @@
 title: 'Instagram Clone'
 date: 'November 2022'
 excerpt: 'A visual clone of Instagram web app to improve my skills in frontend development.'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: '/images/projects/instagramBig.png'
 github: 'https://github.com/HawkieOne/instagram-clone'
 ---
 

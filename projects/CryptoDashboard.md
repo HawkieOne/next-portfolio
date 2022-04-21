@@ -1,4 +1,5 @@
 ---
+visible: "false"
 title: 'Crypto Dashboard'
 date: 'March 4, 2021'
 excerpt: 'A simple web app to convert between different crypto currencies'

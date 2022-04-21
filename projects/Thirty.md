@@ -2,7 +2,7 @@
 title: 'Thirty'
 date: 'March 4, 2021'
 excerpt: 'A mobile dice game which rules are similar to Yatzy'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: '/images/projects/thirty.png'
 github: 'https://github.com/HawkieOne/thirty'
 ---
 

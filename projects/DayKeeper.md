@@ -2,7 +2,7 @@
 title: 'DayKeeper'
 date: 'March 4, 2021'
 excerpt: 'An android application for keeping track of your memories'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: '/images/projects/daykeeperBig.png'
 github: 'https://github.com/HawkieOne/DaykeeperMobile'
 ---
 
