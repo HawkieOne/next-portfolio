@@ -9,21 +9,45 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import { RecoilRoot } from "recoil";
 import { ThemeProvider } from "next-themes";
 import { ReactNotifications } from "react-notifications-component";
+import { AiOutlineMenu } from "react-icons/ai";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <Head>
         <link rel="shortcut icon" href="/images/me.ico" />
+        <title>Håkan | Portfolio</title>
+        <meta name="description" content="An overview over who I am and what I have done" />
+        <meta charSet="utf-8" />
+        <meta property='og:title' content='Håkan | Portfolio'/>
+        <meta name="image" property='og:image' content='https://hakanlindahl.com/images/drawing.png'/>
+        <meta property='og:description' content='An overview of who I am and what I have done'/>
+        <meta property='og:url' content='https://hakanlindahl.com/'/>
+        <link rel="canonical" href="https://hakanlindahl.com/" />
       </Head>
       <ThemeProvider enableSystem={true} attribute="class">
         <ReactNotifications />
-        {/* <div className="h-screen bg-pattern bg-primary flex justify-start"> */}
-        <div className="h-screen bg-primary dark:bg-primary-dark flex justify-start quicksand">
-          <Sidebar />
-          <main className="h-full w-full">
-            <Component {...pageProps} />
-          </main>
+
+        <div className="drawer drawer-mobile">
+          <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content bg-primary dark:bg-primary-dark 
+                        text-secondary dark:text-secondary-dark quicksand">
+            <label
+              htmlFor="my-drawer"
+              className="btn btn-primary glass bg-primary-dark drawer-button lg:hidden m-3 z-10 fixed top-0"
+            >
+              <AiOutlineMenu />
+            </label>
+            <main className="h-full w-full">
+              <Component {...pageProps} />
+            </main>
+          </div>
+          <div className="drawer-side">
+            <label htmlFor="my-drawer" className="drawer-overlay"></label>
+            <div className="w-32 overflow-y-auto">
+              <Sidebar />
+            </div>
+          </div>
         </div>
       </ThemeProvider>
     </RecoilRoot>
