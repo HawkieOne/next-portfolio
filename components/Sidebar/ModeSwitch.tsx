@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/solid";
@@ -12,6 +12,8 @@ export default function ModeSwitch() {
     "darkMode",
     initStateIsDarkMode
   );
+
+  const xTheme = (currentTheme === 'dark' ? 'light' : 'dark');
 
   const onButtonClick = () => {
     if (currentTheme === "dark") {
@@ -27,13 +29,13 @@ export default function ModeSwitch() {
     <div className="flex justify-center">
       <button
         onClick={onButtonClick}
-        className="bg-primary border border-secondary p-3 rounded-lg shadow-lg
+        className="bg-primary p-3 rounded-lg shadow-xl border-2 dark:border-1
                   flex flex-col justify-center items-center spaxe-y-2
-                  dark:bg-primary-dark dark:border-accent-dark
+                  dark:bg-secondary dark:border-accent-dark
                   hover:scale-110 hover:border-accent-dark dark:hover:border-highlight"
         title="Press to change mode"
       >
-        {isDarkMode ? (
+        {!isDarkMode ? (
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -45,7 +47,7 @@ export default function ModeSwitch() {
               mass: 3,
             }}
           >
-            <MoonIcon className="h-8 text-yellow-400" />
+            <MoonIcon className="h-8 text-highlight" />
           </motion.div>
         ) : (
           <motion.div
@@ -59,10 +61,10 @@ export default function ModeSwitch() {
               mass: 3,
             }}
           >
-            <SunIcon className="h-8 text-amber-400" />
+            <SunIcon className="h-8 text-accent" />
           </motion.div>
         )}
-        <p className="capitalize">{currentTheme}</p>
+        <p className="capitalize text-secondary dark:text-secondary-dark">{xTheme}</p>
       </button>
     </div>
   );
