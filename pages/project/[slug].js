@@ -56,7 +56,7 @@ export default function PostPage({
             <img
               src={cover_image}
               alt=""
-              className="h-96 self-center my-5 rounded-lg"
+              className="h-32 lg:h-96 self-center my-5 rounded-lg"
             />
 
             <div className="flex items-center space-x-6">
