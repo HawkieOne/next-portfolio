@@ -25,6 +25,7 @@ module.exports = {
   },
   plugins: [
     "@tailwindcss/forms", 
-    require("tailwind-group-even-odd")
+    require("tailwind-group-even-odd"),
+    require("daisyui")
   ],
 };
