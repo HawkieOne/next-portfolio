@@ -14,7 +14,6 @@ export default function SidebarLink({ item }) {
         className="flex items-center justify-center space-x-2 text-secondary dark:text-secondary-dark
               hover:text-highlight dark:hover:text-highlight cursor-pointer p-3"
       >
-        {/* <FontAwesomeIcon icon={item.icon} /> */}
         {router.pathname === item.link ? (
           <p className="text-lg text-accent scale-110 font-bold">{item.text}</p>
         ) : (

@@ -10,8 +10,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 export default function Header() {
   return (
     <aside className="h-full flex-col justify-between items-center bg-primary dark:bg-primary-dark 
-                      border-r border-r-secondary dark:border-r-accent-dark hidden lg:flex">
-      <AiOutlineMenu className="text-4xl self-start p-1"/>
+                      border-r border-r-highlight md:border-r-secondary dark:border-r-accent-dark flex">
       <Profile />
       {/* <div className="flex flex-col justify-center divide-y divide-secondary border-y border-secondary"> */}
       <div className="flex flex-col justify-center">
