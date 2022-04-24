@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import CanvasDraw from "react-canvas-draw";
 import { saveAs } from "file-saver";
 import IconButton from "./IconButton";
-import emailjs from "emailjs-com";
 import { IoIosColorPalette } from "react-icons/io";
 import { showError, showSuccess } from "../../utils/notificationsFunctions";
 import Popup from "reactjs-popup";
@@ -28,49 +27,25 @@ export default function DrawArea() {
     drawRef.current.undo();
   };
   const send = () => {
-    // const variables = {
-    //   from_email: "lindahl9898@gmail.com",
-    //   from_name: "Håkan",
-    //   message: "Test",
-    //   content: drawRef.current.getDataURL(),
-    //   attachment: [
-    //     { data: '<img src="canvas" alt="My Impression" />', alternative: true },
-    //   ],
-    // };
-    // emailjs
-    //   .send(
-    //     "service_h71mex8",
-    //     "template_bz87pmk",
-    //     variables,
-    //     "user_vSPVPiTGQL2Mi0PApx4ia"
-    //   )
-    //   .then((res) => {
-    //     showSuccess("Email is sent!");
-    //     console.log("Email successfully sent!");
-    //   })
-    //   .catch((err) => {
-    //     showError("Something went wrong!");
-    //     console.error(
-    //       "Oh well, you failed. Here some thoughts on the error that occured:",
-    //       err
-    //     );
-    //   });
-
     const variables = {
-      content: drawRef.current.getDataURL('image/jpeg'),
+      content: drawRef.current.getDataURL("image/jpeg"),
     };
 
-    // https://hakanlindahl.com/server
+    // https://hakanlindahl.com/serverDrawing/
     axios({
       method: "post",
-      url: "http://localhost:9000/server",
+      url: "https://hakanlindahl.com/serverDrawing/",
       data: variables,
     })
       .then((res) => {
-        console.log(res);
+        showSuccess("Drawing was successfully sent!");
       })
       .catch((err) => {
-        console.log(err);
+        console.error(
+          "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
+          err
+        );
+        showError(err.message);
       });
   };
 
@@ -121,7 +96,7 @@ export default function DrawArea() {
             />
           </Popup>
           <CanvasDraw
-            lazyRadius={30}
+            lazyRadius={5}
             brushRadius={4}
             className="border-2 border-secondary-dark dark:border-secondary"
             canvasWidth={600}
