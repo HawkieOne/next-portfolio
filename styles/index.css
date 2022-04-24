@@ -110,9 +110,10 @@ ol {
 }
 
 .markdown h2 {
-  font-size: 150%;
+  font-size: 2.25rem;
   font-weight: bold;
   margin: 20px 0;
+  line-height: 2.5rem;
 }
 
 .markdown h3 {
@@ -124,22 +125,6 @@ ol {
 .markdown a:hover {
   color: #fc5185;
 }
-
-/*------------------------------*/
-/*---------- fullpageJS overrides -------------*/
-/*------------------------------*/
-
-#fp-nav ul li:hover a.active span,
-#fp-nav ul li a.active span,
-.fp-slidesNav ul li:hover a.active span,
-.fp-slidesNav ul li a.active span {
-  background-color: #3FC1C9;
-}
-
-#fp-nav ul li a span, 
-	.fp-slidesNav ul li a span{
-		background: white;
-	}
 
 /*------------------------------*/
 /*---------- Other -------------*/
