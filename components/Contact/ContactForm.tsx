@@ -5,12 +5,15 @@ import IconButton from "./IconButton";
 import { showError, showSuccess } from "../../utils/notificationsFunctions";
 import { useForm } from "react-hook-form";
 import Error from "../shared/Error";
+import axios from "axios";
+import Rating from "./Rating";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [rating, setRating] = useState(null);
 
   const {
     register,
@@ -34,28 +37,28 @@ export default function ContactForm() {
   };
 
   const onSubmit = (event) => {
-    console.log(name + " " + email);
-    event.preventDefault();
+    // event.preventDefault();
+    const nrOfHearts = '♥'.repeat(rating);
     const variables = {
       from_email: email,
       from_name: name,
       message: message,
+      rating: nrOfHearts,
     };
-    emailjs
-      .send(
-        "service_h71mex8",
-        "template_bz87pmk",
-        variables,
-        "user_vSPVPiTGQL2Mi0PApx4ia"
-      )
+
+    // https://hakanlindahl.com/server/
+    //https://hakanlindahl.com/serverContact/
+    axios({
+      method: "post",
+      url: "http://localhost:9000/serverContact/",
+      data: variables,
+    })
       .then((res) => {
-        console.log("Email successfully sent!");
-        showSuccess("Email successfully sent!");
-        event.target.reset();
+        showSuccess("Mail was successfully sent!");
       })
       .catch((err) => {
         console.error(
-          "Oh well, you failed. Here some thoughts on the error that occured:",
+          "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
           err
         );
         showError("Email could not be sent!");
@@ -84,6 +87,7 @@ export default function ContactForm() {
             ></input>
             <Error errors={errors?.name} />
           </motion.div>
+
           <motion.div
             animate={{ x: [100, 0] }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -97,11 +101,14 @@ export default function ContactForm() {
               className="bg-primary border border-secondary  text-secondary placeholder-gray-400 focus:ring-teal-500 w-full p-2
                         dark:bg-primary-dark dark:text-secondary-dark"
             ></input>
-            {errors.email?.type === "required" ? <Error errors={errors?.email} /> : null}
-            {errors.email?.type === "pattern" ? <Error errors={errors?.email} /> : null}
+            {errors.email?.type === "required" ? (
+              <Error errors={errors?.email} />
+            ) : null}
+            {errors.email?.type === "pattern" ? (
+              <Error errors={errors?.email} />
+            ) : null}
           </motion.div>
         </div>
-
         <motion.div
           animate={{ x: [-100, 0] }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -116,22 +123,23 @@ export default function ContactForm() {
           ></input>
           <Error errors={errors?.subject} />
         </motion.div>
-
         <motion.div
           animate={{ x: [-100, 0] }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <textarea
             placeholder="Message"
-            rows={5}
+            rows={4}
             {...register("message", registerOptions.message)}
             onChange={(e) => setMessage(e.target.value)}
             maxLength={500}
-            className="bg-primary border border-secondary text-secondary placeholder-gray-400 focus:ring-teal-500 
+            className="block bg-primary border border-secondary text-secondary placeholder-gray-400 focus:ring-teal-500 
                         resize-none w-full p-2 dark:bg-primary-dark dark:text-secondary-dark"
           ></textarea>
           <Error errors={errors?.message} />
         </motion.div>
+
+        <Rating setRating={setRating}/>
 
         <IconButton
           type="submit"
