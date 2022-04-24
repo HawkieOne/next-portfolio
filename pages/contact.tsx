@@ -1,22 +1,31 @@
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import Socials from "../components/Sidebar/Socials";
 import DrawArea from "../components/Contact/DrawArea";
 import AnimatedWord from "../components/shared/AnimatedWord";
 import ContactForm from "../components/Contact/ContactForm";
+import { currentProjectIndex } from "../atoms/atoms";
+import { useSetRecoilState } from "recoil";
 
 export default function Contact() {
+  
+  const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
+  useEffect(() => {
+    setInitialSlideIndex(0);
+  }, [])
+
+
   return (
     <div className="h-screen flex flex-col lg:flex-row items-end lg:items-center">
       <div
         className="h-full text-secondary dark:text-secondary-dark 
                       flex flex-col items-center justify-center basis-1/2"
       >
-        <div className="flex justify-center space-x-4 items-center">
-          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+        <div className="flex justify-center space-x-4 items-center pt-8 md:pt-0">
+          <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
           <h1 className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
             <AnimatedWord word="Contact me" />
           </h1>
-          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+          <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
         </div>
 
         <p className="w-4/5 mt-2 md:mt-8 text-secondary dark:text-secondary-dark">

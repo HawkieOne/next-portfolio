@@ -1,8 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import WelcomeText from "../components/Home/WelcomeText";
+import { currentProjectIndex } from "../atoms/atoms";
+import { useSetRecoilState } from "recoil";
 
 const IndexPage = () => {
+  
+  const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
+  useEffect(() => {
+    setInitialSlideIndex(0);
+  }, [])
+
+  
   const dirsX = [
     [-200, 0],
     // [0, 0],
@@ -77,6 +86,13 @@ const IndexPage = () => {
         </motion.div>
         <div className="self-center space-y-8">
           <WelcomeText />
+          {/* <div className="stats shadow">
+            <div className="stat">
+              <div className="stat-title">Total Page Views</div>
+              <div className="stat-value">89,400</div>
+              <div className="stat-desc">21% more than last month</div>
+            </div>
+          </div> */}
         </div>
       </div>
     </motion.div>

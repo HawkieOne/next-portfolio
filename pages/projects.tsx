@@ -17,7 +17,7 @@ import { currentProjectIndex } from "../atoms/atoms";
 export default function Projects({ projects }) {
   const initialSlideIndex = useRecoilValue(currentProjectIndex);
   return (
-    <div className="max-h-screen h-full w-full">
+    <div className="h-full w-full">
       <Swiper
         initialSlide={initialSlideIndex}
         direction={"vertical"}

@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Scrollbar from "react-scrollbars-custom";
 import { resumeItems } from "../utils/data";
 import { getYearsInArray } from "../utils/functions";
 import { motion } from "framer-motion";
 import AnimateLetter from "../components/Contact/AnimateLetter";
 import AnimatedWord from "../components/shared/AnimatedWord";
+import { useSetRecoilState } from "recoil";
+import { currentProjectIndex } from "../atoms/atoms";
 
 export default function Resume() {
+
+  const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
+  useEffect(() => {
+    setInitialSlideIndex(0);
+  }, [])
+
   const years = getYearsInArray(resumeItems);
   const resumeYearsArr = years.map((year, index) => {
     return {
@@ -17,17 +25,15 @@ export default function Resume() {
 
   const scaleProps = [1, 1.05, 1];
 
-  // const scrollbarRef = React.createRef();
-
   return (
     <Scrollbar className="h-full">
       <div className="h-full overflow-auto space-y-8 flex flex-col items-center justify-center m-8">
         <div className="flex justify-center space-x-4 items-center">
-          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+          <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
           <h1 className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
             <AnimatedWord word="Experiences" />
           </h1>
-          <span className="rounded-md w-24 h-1 bg-highlight"></span>
+          <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
         </div>
 
         <div className="h-full">
@@ -49,9 +55,10 @@ export default function Resume() {
                   {year.year}
                 </h1>
                 <div className="flex flex-col">
-                  {year.entries.map((entry, index) => {
+                  {year.entries.map((entry, i) => {
                     return (
                       <motion.div
+                      key={i}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         // viewport={{ once: true }}
