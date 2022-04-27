@@ -35,18 +35,18 @@ export default function PostPage({
   return (
     <Scrollbar className="h-full">
       <section className="flex justify-center h-full text-secondary dark:text-secondary-dark">
-        <div className="w-4/6 space-y-6 m-8">
+        <div className="w-5/6 space-y-4 m-8 flex flex-col">
           <Link href="/projects">
             <a
               className="bg-secondary text-secondary-dark border-none px-4 py-2 rounded-lg cursor-pointer
-                        text-xl self-start"
+                        text-xl self-center md:self-start"
             >
               Go Back
             </a>
           </Link>
 
           <div
-            className="flex flex-col space-y-8 px-4 py-5 rounded-b-xl shadow-lg
+            className="flex flex-col space-y-6 px-0 md:px-4 py-5 rounded-b-xl shadow-lg
                           border-t-4 border-accent-dark"
           >
             <h1 className="text-4xl font-bold">{title}</h1>
