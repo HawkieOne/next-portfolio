@@ -35,3 +35,10 @@ export interface ColourOption {
   readonly isFixed?: boolean;
   readonly isDisabled?: boolean;
 }
+
+export type FormInputs = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
