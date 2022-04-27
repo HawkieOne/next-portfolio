@@ -23,6 +23,9 @@ var mail = nodemailer.createTransport({
   },
 });
 
+console.log( process.env.GOOGLE_USER);
+console.log(process.env.GOOGLE_PSW)
+
 app.get("/serverDrawing", (req, res) => {
   res.send(`GET: Hello there`);
 });
@@ -43,24 +46,17 @@ app.post("/serverDrawing", jsonParser, (req, res) => {
       },
     ],
   };
-  mail.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      return res.status(400).send({
-        message: "The mail could not be sent!",
-      });
-    } else {
-      console.log("Email sent: " + info.response);
-      res.send(`Mail sent`);
-    }
-  });  
+  send(mailOptions, res);
 });
 
 app.post("/serverContact", jsonParser, (req, res) => {
   var mailOptions = {
     from: "lindahl9898@gmail.com",
     to: "lindahl9898@gmail.com",
-    subject: "Contact from portfolio",
+    subject: req.body.subject,
     text:
+      "Contact from portfolio: " +
+      "\n" +
       "Name: " +
       req.body.from_name +
       "\n" +
@@ -74,7 +70,11 @@ app.post("/serverContact", jsonParser, (req, res) => {
       req.body.rating +
       "\n",
   };
-  console.log(req.body.rating);
+
+  send(mailOptions, res);
+});
+
+const send = (mailOptions, res) => {
   mail.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
@@ -85,8 +85,8 @@ app.post("/serverContact", jsonParser, (req, res) => {
       console.log("Email sent: " + info.response);
       res.send(`Mail sent`);
     }
-  });  
-});
+  });
+};
 
 app.listen(9000, function () {
   console.log("App running on port 9000");
