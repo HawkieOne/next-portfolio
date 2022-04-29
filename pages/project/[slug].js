@@ -2,9 +2,14 @@ import React from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import Link from "next//link";
-import ReactMarkdown from "react-markdown";
 import Scrollbar from "react-scrollbars-custom";
+import ProjectContent from "../../components/Project/ProjectContent";
+import ProjectContentList from "../../components/Project/ProjectContentList";
+import ProjectContentCode from "../../components/Project/ProjectContentCode";
+import ColorButton from "../../components/shared/ColorButton";
+import Link from "../../components/shared/Link";
+import LinkButtton from "../../components/shared/LinkButtton";
+
 
 export default function PostPage({
   frontmatter: {
@@ -15,12 +20,21 @@ export default function PostPage({
     github,
     description,
     built,
+    features,
     limitations,
     tested,
+    kattis,
+    when,
+    kattisProblem1,
+    kattisProblem2,
+    kattisProblem3,
+    kattisProblem4,
+    kattisProblem5
   },
   slug,
   content,
 }) {
+
   const getRandomColor = () => {
     const colorArr = [
       "text-accent",
@@ -32,109 +46,77 @@ export default function PostPage({
     return colorArr[Math.floor(Math.random() * colorArr.length)];
   };
 
+
   return (
     <Scrollbar className="h-full">
       <section className="flex justify-center h-full text-secondary dark:text-secondary-dark">
         <div className="w-5/6 space-y-4 m-8 flex flex-col">
-          <Link href="/projects">
-            <a
-              className="bg-secondary text-secondary-dark border-none px-4 py-2 rounded-lg cursor-pointer
-                        text-xl self-center md:self-start"
-            >
-              Go Back
-            </a>
-          </Link>
+         
+         <LinkButtton link="/projects" color="bg-secondary">Go Back</LinkButtton>
 
           <div
             className="flex flex-col space-y-6 px-0 md:px-4 py-5 rounded-b-xl shadow-lg
                           border-t-4 border-accent-dark"
           >
+            
             <h1 className="text-4xl font-bold">{title}</h1>
+
+            {/* Date banner */}
             <div className="font-semibold bg-gray-600 py-2 px-4 text-primary">
               {date}
             </div>
+
             <img
               src={cover_image}
               alt=""
               className="h-32 lg:h-96 self-center my-5 rounded-lg"
             />
 
-            <div className="flex items-center space-x-6">
-              <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
-              <h1 className="text-4xl font-bold">Description</h1>
+            {description && (
+              <ProjectContent title="Description" content={description}/>
+            )}
+
+            <div className="flex space-x-4">
+              {github && (
+                <ColorButton link={github} color="bg-secondary">Github</ColorButton>
+              )}
+              {link && (
+                <ColorButton link={link} color="bg-primary">Link</ColorButton>
+              )}
             </div>
-            <p>{description}</p>
-
-            {github && (
-              <a href={github} target="_blank" rel="noreferrer">
-                <button
-                  className="bg-secondary px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
-                        hover:scale-110"
-                >
-                  GitHub
-                </button>
-              </a>
-            )}
-
-            {link && (
-              <a href={link} target="_blank" rel="noreferrer">
-                <button
-                  className="bg-primary-dark px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
-                        hover:scale-110 dark:bg-primary dark:text-secondary"
-                >
-                  Link
-                </button>
-              </a>
-            )}
 
             {built && (
-              <div className="flex flex-col space-y-6">
-                <div className="flex items-center space-x-6">
-                  <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
-                  <h1 className="text-4xl font-bold">Built with</h1>
-                </div>
-                <div class="mockup-code bg-zinc-700 dark:bg-[#1a1c23] shadow">
-                  {built.map((item, index) => (
-                    <a href={item.link} target="_blank" rel="noreferrer">
-                      <pre
-                        data-prefix=">"
-                        className={`${getRandomColor()} hover:text-white`}
-                      >
-                        <code>{item.name}</code>
-                      </pre>
-                    </a>
-                  ))}
-                </div>
-              </div>
+              <ProjectContentCode title="Built with" code={built} />
+            )}
+
+            {kattis && (
+              <React.Fragment>
+                <ProjectContent title="Top 5 problems" content={kattis}/>
+                <ProjectContent title="Problem 1" content={kattisProblem1}/>
+                <ProjectContent title="Problem 2" content={kattisProblem2}/>
+                <ProjectContent title="Problem 3" content={kattisProblem3}/>
+                <ProjectContent title="Problem 4" content={kattisProblem4}/>
+                <ProjectContent title="Problem 5" content={kattisProblem1}/>
+              </React.Fragment>
+            )}
+
+            {features && (
+              <ProjectContent title="Features" content={features}/>
             )}
 
             {limitations && (
-              <div className="flex flex-col space-y-6">
-                <div className="flex items-center space-x-6">
-                  <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
-                  <h1 className="text-4xl font-bold">Limitations</h1>
-                </div>
-                <p>{limitations}</p>
-              </div>
+              <ProjectContent title="Limitatiaons" content={limitations}/>
+            )}
+
+            {when && (
+              <ProjectContent title="When" content={when}/>
             )}
 
             {tested && (
-              <div className="flex flex-col space-y-6">
-                <div className="flex items-center space-x-6">
-                  <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
-                  <h1 className="text-4xl font-bold">Tested on</h1>
-                </div>
-                <div>
-                  {tested.map((item, index) => (
-                    <div className="flex items-center space-x-2">
-                      <span className="rounded-md w-2 md:w-2 h-0.5 bg-accent"></span>
-                      <p>{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <ProjectContentList title="Tested on" list={tested} />
             )}
 
+            {/* Getting started - GitHub link */}
             <div className="flex flex-col space-y-6">
               <div className="flex items-center space-x-6">
                 <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
@@ -142,17 +124,11 @@ export default function PostPage({
               </div>
               <p>
                 Check out the{" "}
-                <a
-                  href={github}
-                  className="text-highlight"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>{" "}
-                if you want to try and run this project on your machine!
+                <Link link={github}>Github</Link>
+                {" "} if you want to try and run this project on your machine!
               </p>
             </div>
+
           </div>
         </div>
       </section>

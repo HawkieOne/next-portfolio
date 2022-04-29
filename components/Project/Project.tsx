@@ -4,13 +4,23 @@ import { motion } from "framer-motion";
 import { useSwiper, useSwiperSlide } from "swiper/react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { currentProjectIndex } from "../../atoms/atoms";
+import { mirrorAnimation } from "../../utils/animation";
+import MovingArrow from "./MovingArrow";
 
 export default function Project({ project, index, maxIndex }) {
   const swiper = useSwiper();
   const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
+
+  const onNextSlide = () => {
+    swiper.slideNext();
+  };
+
+  const onPrevSlide = () => {
+    swiper.slidePrev();
+  };
+
   return (
     <div className="h-screen grid grid-cols-3 grid-rows-7 lg:grid-cols-10 lg:grid-rows-7 px-8 py-4 relative">
-
       <div
         className="flex flex-col items-center md:items-start space-y-8 md:space-y-6 
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
@@ -98,45 +108,28 @@ export default function Project({ project, index, maxIndex }) {
       </div>
 
       {index < maxIndex - 1 ? (
-        <div
-          className="hidden md:flex space-x-4 items-end my-2 
-                          lg:row-start-7 lg:row-end-7 lg:col-start-1 lg:col-end-3"
+        <MovingArrow
+          onArrowClicked={onNextSlide}
+          animationPos={{ x: -5, y: 0 }}
+          xPos={{ start: 1, end: 3 }}
+          yPos={{ start: 7, end: 7 }}
+          animation={mirrorAnimation}
         >
-          <p>Scroll down</p>
-          <motion.div
-            animate={{ y: [-5, 0] }}
-            transition={{
-              ease: "anticipate",
-              repeat: Infinity,
-              repeatType: "mirror",
-              duration: 0.5,
-              repeatDelay: 0.5,
-            }}
-          >
-            <img src="svg/download.svg" alt="" />
-          </motion.div>
-        </div>
+          Scroll down
+        </MovingArrow>
       ) : null}
 
       {index === maxIndex - 1 ? (
-        <div
-          className="hidden md:flex justify-end space-x-4 items-end my-2 lg:self-start
-                          lg:row-start-1 lg:row-end-1 lg:col-start-11 lg:col-end-11"
+        <MovingArrow
+          onArrowClicked={onPrevSlide}
+          animationPos={{ x: -5, y: 0 }}
+          xPos={{ start: 7, end: 7 }}
+          yPos={{ start: 11, end: 11 }}
+          animation={mirrorAnimation}
+          rotate="rotate-180"
         >
-          <p>Scroll up</p>
-          <motion.div
-            animate={{ y: [-5, 0] }}
-            transition={{
-              ease: "anticipate",
-              repeat: Infinity,
-              repeatType: "mirror",
-              duration: 0.5,
-              repeatDelay: 0.5,
-            }}
-          >
-            <img src="svg/download.svg" alt="" className="rotate-180"/>
-          </motion.div>
-        </div>
+          Scroll Up
+        </MovingArrow>
       ) : null}
 
       <div
