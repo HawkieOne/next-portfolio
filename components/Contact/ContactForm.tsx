@@ -37,7 +37,6 @@ export default function ContactForm() {
   const onSubmit = (event) => {
     // event.preventDefault();
     const nrOfHearts = "♥".repeat(rating);
-    Array.fill(10);
     const variables = {
       from_email: email,
       from_name: name,

@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import WelcomeText from "../components/Home/WelcomeText";
 import { currentProjectIndex } from "../atoms/atoms";
 import { useSetRecoilState } from "recoil";
+import { mirrorAnimation } from "../utils/animation";
+import { imgDrawingPath, pdfCVpath, svgSendPath } from "../utils/data";
 
 const IndexPage = () => {
   
@@ -11,22 +13,6 @@ const IndexPage = () => {
     setInitialSlideIndex(0);
   }, [])
 
-  
-  const dirsX = [
-    [-200, 0],
-    // [0, 0],
-  ];
-  const dirsY = [
-    [0, 0],
-    // [100, 0],
-  ];
-  const skewX = [
-    [0, 180, 360, 0],
-    // [100, 0],
-  ];
-  const randomXDir = dirsX[Math.floor(Math.random() * dirsX.length)];
-  const randomYDir = dirsY[Math.floor(Math.random() * dirsY.length)];
-  const randomXSkew = skewX[Math.floor(Math.random() * skewX.length)];
 
   return (
     <motion.div className="h-full flex flex-col items-center justify-center relative">
@@ -34,21 +20,16 @@ const IndexPage = () => {
         className="flex items-center justify-center absolute top-6 right-6 p-4 
                       space-x-2"
       >
+        {/* Download CV */}
         <motion.div
           animate={{ x: [-30, 0] }}
-          transition={{
-            ease: "anticipate",
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 0.5,
-            repeatDelay: 1,
-          }}
+          transition={{mirrorAnimation}}
           className="relative"
         >
-          <img src={"/svg/send.svg"} />
+          <img src={svgSendPath} alt="Dowload CV" />
         </motion.div>
         <a
-          href="/CV/CV.pdf"
+          href={pdfCVpath}
           title=""
           download
           className="p-4 shadow-lg rounded-md cursor-pointer
@@ -60,16 +41,7 @@ const IndexPage = () => {
       </div>
 
       <div className="h-screen relative flex flex-col-reverse lg:flex-row items-end">
-        {/* <Canvas draw={draw} options={{}} /> */}
         <motion.div
-          // animate={{ x: randomXDir, y: randomYDir }}
-          // transition={{
-          //   ease: "anticipate",
-          //   repeat: Infinity,
-          //   repeatType: "mirror",
-          //   duration: 1,
-          //   repeatDelay: 4,
-          // }}
           animate={{ opacity: [0, 1] }}
           transition={{
             ease: "anticipate",
@@ -78,7 +50,7 @@ const IndexPage = () => {
           className="basis-1/2 h-3/4 bg-primary dark:bg-primary-dark"
         >
           <img
-            src="images/drawing.png"
+            src={imgDrawingPath}
             alt="drawing of me"
             className="mix-blend-multiply dark:mix-blend-luminosity h-full
                       slidingImg pl-4"
@@ -86,13 +58,6 @@ const IndexPage = () => {
         </motion.div>
         <div className="self-center space-y-8">
           <WelcomeText />
-          {/* <div className="stats shadow">
-            <div className="stat">
-              <div className="stat-title">Total Page Views</div>
-              <div className="stat-value">89,400</div>
-              <div className="stat-desc">21% more than last month</div>
-            </div>
-          </div> */}
         </div>
       </div>
     </motion.div>

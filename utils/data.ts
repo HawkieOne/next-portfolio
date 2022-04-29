@@ -22,6 +22,11 @@ export const github: Link = {
   link: 'https://github.com/HawkieOne',
 }
 
+export const svgSendPath = "/svg/send.svg";
+export const svgDownloadPath = "/svg/download.svg";
+export const imgDrawingPath = "images/drawing.png";
+export const pdfCVpath = "/CV/CV.pdf"; 
+
 // export const footerItems = [
 //   { icon: <FaFacebookF/>, link: "https://www.facebook.com/hakan.lindahl.58/"},
 //   { icon: <FaLinkedinIn/>, link: "https://www.linkedin.com/in/hakanlindahl/" },
