@@ -1,6 +1,6 @@
 ---
 title: 'DayKeeper'
-date: 'March 4, 2021'
+date: 'Summer 2020'
 excerpt: 'An android application for keeping track of your memories'
 cover_image: '/images/projects/daykeeperBig.png'
 github: 'https://github.com/HawkieOne/DaykeeperMobile'
@@ -16,13 +16,8 @@ built: [
    link: 'https://www.java.com/sv/'
 },
 ]
-limitations: TODO
-tested: ['Tristis natorum ora talia patriis famae naidas',
-         'Deus scilicet male miliaque noctisque invenio Nilum']
+limitations: The app only stores the memories locally on the phone. A better solution would be an online database to be able to use the app on multiple devices and sync the memories between the devices. 
+when: 'I developed the application myself during a summercourse at Umeå university and wrote the app in Java with Android Studio. Before the course I had not worked with programming for android devices but I quickly understood the different structure and design principles for mobile devices.'
+tested: ['Xiaomi Mi 9 - Android 10']
 ---
-## When
-
-I developed the application myself during a summercourse at Umeå university and wrote the app in Java with Android Studio.
-Before the course I had not worked with programming for android devices but I quickly understood the different structure 
-and design principles for mobile devices.
 
