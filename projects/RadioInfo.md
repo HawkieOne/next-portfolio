@@ -1,6 +1,6 @@
 ---
 title: "Radio Info"
-date: "March 4, 2021"
+date: "December 2020"
 excerpt: "A program which shows a radio schedule fetched from SR:s public API"
 cover_image: "/images/projects/radioinfo.png"
 github: "https://github.com/HawkieOne/radioinfo"
@@ -18,10 +18,11 @@ built:
       link: "https://sverigesradio.se/oppetapi",
     },
   ]
-limitations: TODO
+limitations: 'The program can stream the sound from the program that is active on a certain channel but the sound quality is not perfect. Furthermore, the stream quits after a certain time and needs to be restarted after that. This is probably due to something memory related but it is hard to say.'
+when: 'The program was a part of the course "Applikationsutveckling i Java" at Umeå University and was a solo project.  
+' 
 tested:
   [
-    "Tristis natorum ora talia patriis famae naidas",
-    "Deus scilicet male miliaque noctisque invenio Nilum",
+    "Windows 10",
   ]
 ---
