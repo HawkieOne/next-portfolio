@@ -15,9 +15,9 @@ export default function SidebarLink({ item }) {
               hover:text-highlight dark:hover:text-highlight cursor-pointer p-3"
       >       
         {router.pathname === item.link || ('/' + router.pathname.split("/")[1] + 's') === item.link ? (
-          <p className="text-lg text-accent scale-110 font-bold">{item.text}</p>
+          <p className="text-lg text-accent scale-110 font-bold" title={item.text}>{item.text}</p>
         ) : (
-          <p className="text-lg">{item.text}</p>
+          <p className="text-lg" title={item.text}>{item.text}</p>
         )}
       </div>
     </Link>

@@ -15,7 +15,7 @@ export default function Socials() {
     <section className="flex justify-center">
       <div className="bg-primary dark:bg-primary-dark flex space-x-1">
         {footerItems.map((item, index) => (
-          <a href={item.link} key={index} aria-label={item.name} target="_blank" rel="noreferrer">
+          <a href={item.link} key={index} aria-label={item.name} target="_blank" rel="noreferrer" title={item.name}>
           <div              
             className="flex items-center m-2 text-secondary hover:text-accent
                        cursor-pointer dark:hover:text-highlight

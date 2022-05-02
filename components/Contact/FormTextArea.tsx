@@ -24,7 +24,7 @@ export default function FormTextArea({ form, typeObj, type, value, onChange, ini
                           error
                             ? "focus:ring-red-500"
                             : "focus:ring-accent-dark"
-                        }`}npm
+                        }`}
       ></textarea>
       <Error errors={error} />
     </motion.div>

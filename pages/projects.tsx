@@ -67,11 +67,9 @@ export async function getStaticProps() {
     };
   });
 
-  console.log(projects);
   projects = projects.filter(
     (project) => project.frontmatter?.visible !== "false"
   );
-  console.log(projects);
 
   return {
     props: {

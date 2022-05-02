@@ -72,7 +72,7 @@ export default function ContactForm() {
     setSubject("");
     setMessage("");
     setRating(null);
-  }
+  };
 
   return (
     <div className="flex justify-center items-center">
@@ -125,12 +125,14 @@ export default function ContactForm() {
 
         <Rating setRating={setRating} />
 
-        <IconButton
-          type="submit"
-          text="Send"
-          svgPath="/svg/send.svg"
-          click={() => {}}
-        />
+        <div className="self-center lg:self-end"> 
+          <IconButton
+            type="submit"
+            text="Send"
+            svgPath="/svg/send.svg"
+            click={() => {}}
+          />
+        </div>
       </form>
     </div>
   );

@@ -23,9 +23,6 @@ var mail = nodemailer.createTransport({
   },
 });
 
-console.log( process.env.GOOGLE_USER);
-console.log(process.env.GOOGLE_PSW)
-
 app.get("/serverDrawing", (req, res) => {
   res.send(`GET: Hello there`);
 });
