@@ -12,7 +12,7 @@ export default function AnimateLetter({ letter }) {
       transition={{ times: [0, 0.2, 0.7, 1] }}
       className="hover:text-accent"
     >
-      {letter}
+      <h1>{letter}</h1>
     </motion.div>
   );
 }

@@ -24,7 +24,7 @@ export const github: Link = {
 
 export const svgSendPath = "/svg/send.svg";
 export const svgDownloadPath = "/svg/download.svg";
-export const imgDrawingPath = "images/drawing.png";
+export const imgDrawingPath = "images/drawing.webp";
 export const pdfCVpath = "/CV/CV.pdf"; 
 
 // export const footerItems = [

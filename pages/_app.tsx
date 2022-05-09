@@ -29,8 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ReactNotifications />
 
         <div className="drawer drawer-mobile">
-          <label htmlFor="drawer" className="hidden"></label>
-          <input id="my-drawer" type="checkbox" className="drawer-toggle" name="drawer"/>
+          <input id="my-drawer" aria-label="Sidebar" type="checkbox" className="drawer-toggle" name="drawer"/>
           <div className="drawer-content bg-primary dark:bg-primary-dark 
                         text-secondary dark:text-secondary-dark quicksand">
             <label

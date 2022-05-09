@@ -10,7 +10,7 @@ export default function Profile() {
     >
       <Link href="/">
         <Image
-          src="/images/me.png"
+          src="/images/me.webp"
           alt="a cartoon picture of Håkan Lindahl"
           width="96"
           height="96"
@@ -21,9 +21,9 @@ export default function Profile() {
       <h1 className="text-secondary dark:text-secondary-dark text-2xl font-bold">
         Håkan
       </h1>
-      <h3 className="text-secondary dark:text-secondary-dark text-xs">
+      <h2 className="text-secondary dark:text-secondary-dark text-xs">
         Web developer
-      </h3>
+      </h2>
     </section>
   );
 }
