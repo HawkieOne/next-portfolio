@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import IconButton from "./IconButton";
@@ -10,6 +10,8 @@ import Rating from "./Rating";
 import FormField from "./FormField";
 import FormTextArea from "./FormTextArea";
 import { FormInputs } from "../../interfaces";
+import LoadingOverlay from "react-loading-overlay-ts";
+import { BeatLoader } from "react-spinners";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -17,6 +19,7 @@ export default function ContactForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -25,6 +28,10 @@ export default function ContactForm() {
   } = useForm<FormInputs>({
     mode: "all",
   });
+
+  const setLoadingOverlay = useCallback(() => {
+    setIsLoading((value) => !value);
+  }, []);
 
   //  ? /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i - regex pattern for mail validation
   const registerOptions = {
@@ -35,36 +42,63 @@ export default function ContactForm() {
   };
 
   const onSubmit = (event) => {
-    // event.preventDefault();
-    const nrOfHearts = "♥".repeat(rating);
-    const variables = {
-      from_email: email,
-      from_name: name,
-      subject: subject,
-      message: message,
-      rating: nrOfHearts,
-    };
+    console.log(isLoading)
+    const isEmpty = isFormEmpty();
+    console.log(isEmpty)
+    if (isEmpty) {
+      showError("Mail can not contain field with only spaces");
+      return;
+    } 
+    if (!isLoading) {
+      // event.preventDefault();
+      setLoadingOverlay();
+      const nrOfHearts = "♥".repeat(rating);
+      const variables = {
+        from_email: email,
+        from_name: name,
+        subject: subject,
+        message: message,
+        rating: nrOfHearts,
+      };
 
-    resetForm();
+      resetForm();
 
-    // * https://hakanlindahl.com/server/
-    // * https://hakanlindahl.com/serverContact/
-    axios({
-      method: "post",
-      url: "http://localhost:9000/serverContact/",
-      data: variables,
-    })
-      .then((res) => {
-        showSuccess("Mail was successfully sent!");
+      // * https://hakanlindahl.com/server/
+      // * https://hakanlindahl.com/serverContact/
+      // * "http://localhost:9000/serverContact/
+      axios({
+        method: "post",
+        url: "https://hakanlindahl.com/serverContact/",
+        data: variables,
       })
-      .catch((err) => {
-        console.error(
-          "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
-          err
-        );
-        showError("Email could not be sent!");
-      });
+        .then((res) => {
+          showSuccess("Mail was successfully sent!");
+          setLoadingOverlay();
+        })
+        .catch((err) => {
+          console.error(
+            "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
+            err
+          );
+          showError("Email could not be sent!");
+          setLoadingOverlay();
+        });
+    }
   };
+
+  const isFormEmpty = () => {
+    if (checkIfOnlyWhitespace(name) || 
+        checkIfOnlyWhitespace(email) || 
+        checkIfOnlyWhitespace(subject) || 
+        checkIfOnlyWhitespace(message)) {
+          return true;
+    }
+    return false;
+  }
+
+  const checkIfOnlyWhitespace = (str) => {
+    return !str.replace(/\s/g, '').length;
+  }
 
   const resetForm = () => {
     setName("");
@@ -125,13 +159,15 @@ export default function ContactForm() {
 
         <Rating setRating={setRating} />
 
-        <div className="self-center lg:self-end"> 
-          <IconButton
-            type="submit"
-            text="Send"
-            svgPath="/svg/send.svg"
-            click={() => {}}
-          />
+        <div className="self-center lg:self-end">
+          <LoadingOverlay active={isLoading} spinner={<BeatLoader color="#3FC1C9" size={5}/>}>
+            <IconButton
+              type="submit"
+              text="Send"
+              svgPath="/svg/send.svg"
+              click={() => {}}
+            />
+          </LoadingOverlay>
         </div>
       </form>
     </div>

@@ -9,11 +9,11 @@ export default function Profile() {
                       dark:bg-primary-dark"
     >
       <Link href="/">
-        <Image
+        <img
           src="/images/me.webp"
           alt="a cartoon picture of Håkan Lindahl"
-          width="96"
-          height="96"
+          // width="96"
+          // height="96"
           className="cursor-pointer"
           title="Go to home"
         />

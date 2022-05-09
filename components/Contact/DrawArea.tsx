@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import CanvasDraw from "react-canvas-draw";
 import { saveAs } from "file-saver";
 import IconButton from "./IconButton";
@@ -8,14 +8,21 @@ import Popup from "reactjs-popup";
 import { GithubPicker } from "react-color";
 import { useTheme } from "next-themes";
 import axios from "axios";
+import LoadingOverlay from "react-loading-overlay-ts";
+import SyncLoader from 'react-spinners/SyncLoader'
 
 export default function DrawArea() {
   const drawRef = useRef(null);
   const [color, setColor] = useState("#000");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const canvasColor = currentTheme === "dark" ? "#222831" : "#fff";
+
+  const setLoadingOverlay = useCallback(() => {
+    setIsLoading((value) => !value);
+  }, []);
 
   const download = () => {
     saveAs(drawRef.current.getDataURL(), "drawing.jpg");
@@ -27,26 +34,31 @@ export default function DrawArea() {
     drawRef.current.undo();
   };
   const send = () => {
-    const variables = {
-      content: drawRef.current.getDataURL("image/jpeg"),
-    };
+    if (!isLoading) {
+      setLoadingOverlay();
+      const variables = {
+        content: drawRef.current.getDataURL("image/jpeg"),
+      };
 
-    // https://hakanlindahl.com/serverDrawing/
-    axios({
-      method: "post",
-      url: "https://hakanlindahl.com/serverDrawing/",
-      data: variables,
-    })
-      .then((res) => {
-        showSuccess("Drawing was successfully sent!");
+      // https://hakanlindahl.com/serverDrawing/
+      axios({
+        method: "post",
+        url: "https://hakanlindahl.com/serverDrawing/",
+        data: variables,
       })
-      .catch((err) => {
-        console.error(
-          "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
-          err
-        );
-        showError(err.message);
-      });
+        .then((res) => {
+          showSuccess("Drawing was successfully sent!");
+          setLoadingOverlay();
+        })
+        .catch((err) => {
+          console.error(
+            "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
+            err
+          );
+          showError(err.message);
+          setLoadingOverlay();
+        });
+    }
   };
 
   const changeColor = (color) => {
@@ -95,18 +107,20 @@ export default function DrawArea() {
               triangle="hide"
             />
           </Popup>
-          <CanvasDraw
-            lazyRadius={5}
-            brushRadius={4}
-            className="border-2 border-secondary-dark dark:border-secondary"
-            canvasWidth={600}
-            canvasHeight={600}
-            hideGrid={true}
-            backgroundColor={canvasColor}
-            catenaryColor="#282828"
-            brushColor={color}
-            ref={drawRef}
-          />
+          <LoadingOverlay active={isLoading} spinner={<SyncLoader color="#3FC1C9"/>}>
+            <CanvasDraw
+              lazyRadius={5}
+              brushRadius={4}
+              className="border-2 border-secondary-dark dark:border-secondary"
+              canvasWidth={600}
+              canvasHeight={600}
+              hideGrid={true}
+              backgroundColor={canvasColor}
+              catenaryColor="#282828"
+              brushColor={color}
+              ref={drawRef}
+            />
+          </LoadingOverlay>
         </div>
       </div>
 
