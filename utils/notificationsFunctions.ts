@@ -1,6 +1,9 @@
 import { Store } from "react-notifications-component";
+import { BeatLoader } from "react-spinners";
+import LoadingInfo from "../components/Contact/LoadingInfo";
+
 export const showError = (errorMsg) => {
-  Store.addNotification({
+  return Store.addNotification({
     title: "Error!",
     message: errorMsg,
     type: "danger",
@@ -15,8 +18,20 @@ export const showError = (errorMsg) => {
   });
 };
 
+export const showInfo = (errorMsg) => {
+  return Store.addNotification({
+    title: "Info!",
+    message: errorMsg,
+    type: "info",
+    insert: "top",
+    container: "top-right",
+    animationIn: ["animate__animated", "animate__fadeIn"],
+    animationOut: ["animate__animated", "animate__fadeOut"],
+  });
+};
+
 export const showSuccess = (successMsg) => {
-  Store.addNotification({
+  return Store.addNotification({
     title: "Success!",
     message: successMsg,
     type: "success",
@@ -30,3 +45,7 @@ export const showSuccess = (successMsg) => {
     },
   });
 };
+
+export const removeNotifications = () => {
+  Store.removeAllNotifications();
+}

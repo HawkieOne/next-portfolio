@@ -3,7 +3,7 @@ import CanvasDraw from "react-canvas-draw";
 import { saveAs } from "file-saver";
 import IconButton from "./IconButton";
 import { IoIosColorPalette } from "react-icons/io";
-import { showError, showSuccess } from "../../utils/notificationsFunctions";
+import { removeNotifications, showError, showInfo, showSuccess } from "../../utils/notificationsFunctions";
 import Popup from "reactjs-popup";
 import { GithubPicker } from "react-color";
 import { useTheme } from "next-themes";
@@ -36,6 +36,7 @@ export default function DrawArea() {
   const send = () => {
     if (!isLoading) {
       setLoadingOverlay();
+      showInfo("Sending drawing")
       const variables = {
         content: drawRef.current.getDataURL("image/jpeg"),
       };
@@ -47,10 +48,12 @@ export default function DrawArea() {
         data: variables,
       })
         .then((res) => {
+          removeNotifications();
           showSuccess("Drawing was successfully sent!");
           setLoadingOverlay();
         })
         .catch((err) => {
+          removeNotifications();
           console.error(
             "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
             err

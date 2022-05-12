@@ -1,17 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
 import IconButton from "./IconButton";
-import { showError, showSuccess } from "../../utils/notificationsFunctions";
+import { showError, showSuccess, showInfo, removeNotifications } from "../../utils/notificationsFunctions";
 import { useForm } from "react-hook-form";
-import Error from "../shared/Error";
 import axios from "axios";
 import Rating from "./Rating";
 import FormField from "./FormField";
 import FormTextArea from "./FormTextArea";
 import { FormInputs } from "../../interfaces";
-import LoadingOverlay from "react-loading-overlay-ts";
-import { BeatLoader } from "react-spinners";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -29,10 +24,6 @@ export default function ContactForm() {
     mode: "all",
   });
 
-  const setLoadingOverlay = useCallback(() => {
-    setIsLoading((value) => !value);
-  }, []);
-
   //  ? /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i - regex pattern for mail validation
   const registerOptions = {
     name: { required: "Name is required" },
@@ -42,16 +33,14 @@ export default function ContactForm() {
   };
 
   const onSubmit = (event) => {
-    console.log(isLoading)
     const isEmpty = isFormEmpty();
-    console.log(isEmpty)
     if (isEmpty) {
       showError("Mail can not contain field with only spaces");
       return;
-    } 
+    }
     if (!isLoading) {
+      showInfo("Sending email");
       // event.preventDefault();
-      setLoadingOverlay();
       const nrOfHearts = "♥".repeat(rating);
       const variables = {
         from_email: email,
@@ -72,33 +61,35 @@ export default function ContactForm() {
         data: variables,
       })
         .then((res) => {
+          removeNotifications();
           showSuccess("Mail was successfully sent!");
-          setLoadingOverlay();
         })
         .catch((err) => {
+          removeNotifications();
           console.error(
             "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
             err
           );
           showError("Email could not be sent!");
-          setLoadingOverlay();
         });
     }
   };
 
   const isFormEmpty = () => {
-    if (checkIfOnlyWhitespace(name) || 
-        checkIfOnlyWhitespace(email) || 
-        checkIfOnlyWhitespace(subject) || 
-        checkIfOnlyWhitespace(message)) {
-          return true;
+    if (
+      checkIfOnlyWhitespace(name) ||
+      checkIfOnlyWhitespace(email) ||
+      checkIfOnlyWhitespace(subject) ||
+      checkIfOnlyWhitespace(message)
+    ) {
+      return true;
     }
     return false;
-  }
+  };
 
   const checkIfOnlyWhitespace = (str) => {
-    return !str.replace(/\s/g, '').length;
-  }
+    return !str.replace(/\s/g, "").length;
+  };
 
   const resetForm = () => {
     setName("");
@@ -160,14 +151,12 @@ export default function ContactForm() {
         <Rating setRating={setRating} />
 
         <div className="self-center lg:self-end">
-          <LoadingOverlay active={isLoading} spinner={<BeatLoader color="#3FC1C9" size={5}/>}>
-            <IconButton
-              type="submit"
-              text="Send"
-              svgPath="/svg/send.svg"
-              click={() => {}}
-            />
-          </LoadingOverlay>
+          <IconButton
+            type="submit"
+            text="Send"
+            svgPath="/svg/send.svg"
+            click={() => {}}
+          />
         </div>
       </form>
     </div>
