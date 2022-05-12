@@ -10,48 +10,58 @@ export default function Rating({ setRating }) {
 
   return (
     <div className="flex flex-col space-y-2 items-center">
-      <h3 className="">Rate my portfolio!</h3>
+      <h2 className="" tabIndex={0}>Rate my portfolio!</h2>
       <div className="rating rating-md gap-1">
         <input
           type="radio"
-          name="rating-3"
-          className="mask mask-heart bg-red-400"
+          name="heart1"
+          className="mask mask-heart bg-red-400 focus:bg-accent"
           checked={index === 0}
           onChange={onChange}
           value={0}
+          aria-label="1 heart"
         />
         <input
           type="radio"
-          name="rating-3"
-          className="mask mask-heart bg-orange-400"
+          name="heart2"
+          className="mask mask-heart bg-orange-400 focus:bg-accent"
           checked={index === 1}
           onChange={onChange}
           value={1}
+          id="heart2"
+          aria-label="2 hearts"
         />
         <input
           type="radio"
-          name="rating-3"
-          className="mask mask-heart bg-yellow-400"
+          name="heart3"
+          className="mask mask-heart bg-yellow-400 focus:bg-accent"
           checked={index === 2}
           onChange={onChange}
           value={2}
+          id="heart3" 
+          aria-label="3 hearts"         
         />
         <input
           type="radio"
-          name="rating-3"
-          className="mask mask-heart bg-lime-400"
+          name="heart4"
+          className="mask mask-heart bg-lime-400 focus:bg-accent"
           checked={index === 3}
           onChange={onChange}
           value={3}
+          id="heart4"
+          aria-label="4 hearts"
         />
         <input
           type="radio"
-          name="rating-3"
-          className="mask mask-heart bg-green-400"
+          name="heart5"
+          className="mask mask-heart bg-green-400 focus:bg-accent"
           checked={index === 4}
           onChange={onChange}
           value={4}
+          id="heart5"
+          aria-label="5 hearts"
         />
+        <label htmlFor="heart5" className="hidden">5 hearts</label>
       </div>
     </div>
   );
