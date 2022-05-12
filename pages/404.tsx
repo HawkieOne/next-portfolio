@@ -1,4 +1,5 @@
 import React from "react";
+import { imgDrawingPath } from "../utils/data";
 
 export default function Custom404() {
   return (
@@ -7,7 +8,7 @@ export default function Custom404() {
                         flex items-center p-4 rounded-lg">
         <div className="hidden lg:block w-1/2 h-1/2">
           <img
-            src="images/drawing.png"
+            src={imgDrawingPath}
             alt="drawing of me"
             className="mix-blend-multiply dark:mix-blend-luminosity rotate-180"
           />
