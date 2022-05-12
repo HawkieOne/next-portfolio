@@ -37,7 +37,7 @@ export const resumeItems: ResumeItem[] = [
   {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project based on AR ' + 
   'that will prevent injuries for persons that spend a lot of time at the computer.'},
   {title: 'Studies', location: 'Umeå university', year: 2020, description: 'During 2020 I put a lot of time on my studies and on top of ' +
-  + 'that the pandemic started this year so I have concentrated on educating myself' + 
+  'that the pandemic started this year so I have concentrated on educating myself' + 
   ' in the subjects that interest me. Some of these subjects are Java, ASP.NET, React and Unity.'},
   {title: 'Student ambassador', location: 'ALTEN', year: 2019, description: 'As a student ambassador I coordinate events and activities ' +
   'aimed at students at Umeå university. This is ' + 
