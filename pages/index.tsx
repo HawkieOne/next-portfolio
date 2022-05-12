@@ -34,7 +34,9 @@ const IndexPage = () => {
           download
           className="p-4 shadow-lg rounded-md cursor-pointer
                   border border-secondary dark:border-accent-dark
-                  hover:scale-105 hover:border-accent-dark dark:hover:border-highlight"
+                  hover:scale-105 hover:border-accent-dark dark:hover:border-highlight 
+                  focus:scale-105 focus:outline-accent
+                  dark:focus:scale-105 dark:focus:outline-accent active:outline-accent"
         >
           Download CV
         </a>

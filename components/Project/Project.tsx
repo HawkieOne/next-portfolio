@@ -26,17 +26,17 @@ export default function Project({ project, index, maxIndex }) {
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
                       row-start-1 row-end-2 col-start-1 col-end-4"
       >
-        <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent">
+        <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent" tabIndex={0}>
           {project.frontmatter.title}
         </h1>
-        <h3 className="w-5/6 xl:w-2/3 self-start">
+        <h3 className="w-5/6 xl:w-2/3 self-start" tabIndex={0}>
           {project.frontmatter.excerpt}
         </h3>
 
         <div className="flex space-x-3 xl:space-x-6 self-start">
           <Link href={`/project/${project.slug}`} passHref>
             <button
-              className="bg-accent px-6 py-2 text-secondary font-bold rounded-xl self-start
+              className="bg-accent px-6 py-2 text-primary-dark font-bold rounded-xl self-start
                           hover:scale-110"
               onClick={() => setInitialSlideIndex(index)}
             >
@@ -113,7 +113,7 @@ export default function Project({ project, index, maxIndex }) {
             onArrowClicked={onNextSlide}
             animationPos={{ x: -5, y: 0 }}
             xPos={{ start: 1, end: 3 }}
-            yPos={{ start: 7, end: 7 }}
+            yPos={{ start: 5, end: 7 }}
             animation={mirrorAnimation}
           >
             Scroll down
