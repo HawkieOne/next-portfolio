@@ -51,6 +51,7 @@ export default function Resume() {
                   className="self-center text-2xl md:text-3xl bg-primary dark:bg-primary-dark p-2 px-4 
                           text-accent dark:border-b-secondary
                             border-b-4 border-accent z-10 shadow-lg"
+                  tabIndex={0}
                 >
                   {year.year}
                 </h1>
@@ -79,13 +80,13 @@ export default function Resume() {
                           dark:border-b-secondary
                           text-secondary shadow-lg"
                         >
-                          <h2 className="self-center text-xl md:text-2xl lg:text-3xl text-accent">
+                          <h2 className="self-center text-xl md:text-2xl lg:text-3xl text-accent" tabIndex={0}>
                             {entry.title}
                           </h2>
-                          <h3 className="self-center text-md md:text-xl lg:text-2xl text-highlight">
+                          <h3 className="self-center text-md md:text-xl lg:text-2xl text-highlight" tabIndex={0}>
                             {entry.location}
                           </h3>
-                          <p className="dark:text-secondary-dark text-s md:text-md lg:text-base">
+                          <p className="dark:text-secondary-dark text-s md:text-md lg:text-base" tabIndex={0}>
                             {entry.description}
                           </p>
                         </motion.div>

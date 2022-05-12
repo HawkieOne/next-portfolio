@@ -32,7 +32,9 @@ export default function ModeSwitch() {
         className="bg-primary p-3 rounded-lg shadow-xl border-2 dark:border-1
                   flex flex-col justify-center items-center spaxe-y-2
                   dark:bg-secondary dark:border-accent-dark
-                  hover:scale-110 hover:border-accent-dark dark:hover:border-highlight"
+                  hover:scale-110 hover:border-accent-dark dark:hover:border-highlight
+                  focus:scale-110 focus:outline-primary-dark 
+                    dark:focus:scale-110 dark:focus:outline-primary-dark"
         title="Press to change mode"
       >
         {!isDarkMode ? (

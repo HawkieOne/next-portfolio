@@ -78,6 +78,7 @@ export default function DrawArea() {
                 className="absolute left-0 top-0 bg-gray-300 rounded-lg shadow-md p-2 m-3
                              text-secondary z-10"
                 onClick={changeColor}
+                aria-label="Change color of brush"
               >
                 <IoIosColorPalette size={30} />
               </button>

@@ -22,7 +22,9 @@ export default function WelcomeText() {
               href="https://www.linkedin.com/in/hakanlindahl/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-highlight name"
+              className="hover:text-highlight name 
+                          focus:text-highlight focus:outline-primary-dark"
+              title="Håkan - LinkedIn"
             >
               Håkan
             </a>

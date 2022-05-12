@@ -18,8 +18,8 @@ export default function Socials() {
           <a href={item.link} key={index} aria-label={item.name} target="_blank" rel="noreferrer" title={item.name}>
           <div              
             className="flex items-center m-2 text-secondary hover:text-accent
-                       cursor-pointer dark:hover:text-highlight
-                     dark:text-secondary-dark"
+                       cursor-pointer dark:text-secondary-dark dark:hover:text-highlight                     
+                     focus:bg-red-700 "
           >
             {item.icon}
           </div>
