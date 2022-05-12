@@ -13,7 +13,7 @@ export default function IconButton({ type, text, svgPath, click }) {
         className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 
                      -translate-x-full bg-secondary group-hover:translate-x-0 ease"
       >
-        <img src={svgPath}/>  
+        <img src={svgPath} alt={text}/>  
       </span>
       <span
         className="absolute flex items-center justify-center w-full h-full text-secondary dark:text-secondary-dark
