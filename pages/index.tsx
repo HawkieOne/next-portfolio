@@ -23,7 +23,13 @@ const IndexPage = () => {
         {/* Download CV */}
         <motion.div
           animate={{ x: [-30, 0] }}
-          transition={{mirrorAnimation}}
+          transition={{
+            ease: "anticipate",
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 0.5,
+            repeatDelay: 1,
+          }}
           className="relative"
         >
           <img src={svgSendPath} alt="Dowload CV" />
