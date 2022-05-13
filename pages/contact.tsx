@@ -61,7 +61,9 @@ export default function Contact() {
       >
         <div className="flex justify-center space-x-4 items-center">
           <span className="rounded-md w-24 h-1 bg-highlight"></span>
-          <AnimatedWord word="Draw" />
+          <div className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
+            <AnimatedWord word="Draw" />
+          </div>
           <span className="rounded-md w-24 h-1 bg-highlight"></span>
         </div>
         <p className="w-4/5 mb-16 mt-8 text-secondary dark:text-secondary-dark" tabIndex={0}>
