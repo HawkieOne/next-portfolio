@@ -7,7 +7,7 @@ export default function IconButton({ type, text, svgPath, click }) {
       onClick={click}
       className="self-end relative inline-flex items-center justify-center p-4 px-8 py-3 overflow-hidden 
                font-medium text-secondary transition duration-300 ease-out border-2 border-secondary 
-              rounded shadow-md group text-lg"
+              rounded shadow-md group text-lg focus:outline-accent"
     >
       <span
         className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 
