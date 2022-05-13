@@ -29,9 +29,9 @@ export default function Project({ project, index, maxIndex }) {
         <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent" tabIndex={0}>
           {project.frontmatter.title}
         </h1>
-        <h3 className="w-5/6 xl:w-2/3 self-start" tabIndex={0}>
+        <p className="w-5/6 xl:w-2/3 self-start" tabIndex={0}>
           {project.frontmatter.excerpt}
-        </h3>
+        </p>
 
         <div className="flex space-x-3 xl:space-x-6 self-start">
           <Link href={`/project/${project.slug}`} passHref>
@@ -46,7 +46,7 @@ export default function Project({ project, index, maxIndex }) {
           {project.frontmatter.demo && (
             <a href={project.frontmatter.demo} target="_blank" rel="noreferrer">
               <button
-                className="bg-highlight px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                className="bg-highlight px-6 py-2 text-primary-dark font-bold rounded-xl self-start
                         hover:scale-110"
               >
                 Demo
@@ -107,13 +107,10 @@ export default function Project({ project, index, maxIndex }) {
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:flex items-end lg:row-start-7 lg:row-end-7 lg:col-start-1 lg:col-end-3">
         {index < maxIndex - 1 ? (
           <MovingArrow
             onArrowClicked={onNextSlide}
-            animationPos={{ x: -5, y: 0 }}
-            xPos={{ start: 1, end: 3 }}
-            yPos={{ start: 5, end: 7 }}
             animation={mirrorAnimation}
           >
             Scroll down
@@ -121,13 +118,10 @@ export default function Project({ project, index, maxIndex }) {
         ) : null}
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden lg:block lg:row-start-1 lg:row-end-1 lg:col-start-10 lg:col-end-12">
         {index === maxIndex - 1 ? (
           <MovingArrow
             onArrowClicked={onPrevSlide}
-            animationPos={{ x: -5, y: 0 }}
-            xPos={{ start: 7, end: 7 }}
-            yPos={{ start: 11, end: 11 }}
             animation={mirrorAnimation}
             rotate="rotate-180"
           >
@@ -141,9 +135,9 @@ export default function Project({ project, index, maxIndex }) {
                       lg:row-start-7 lg:row-end-7 lg:col-start-11 lg:col-end-11
                       row-start-2 row-end-2 col-start-2 col-end-2"
       >
-        <h2 className="font-bold text-4xl md:text-6xl lg:text-9xl text-accent">
+        <h1 className="font-bold text-4xl md:text-6xl lg:text-9xl text-accent">
           0{index + 1}
-        </h2>
+        </h1>
       </div>
     </div>
   );
