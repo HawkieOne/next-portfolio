@@ -2,16 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { svgDownloadPath } from "../../utils/data";
 
-export default function MovingArrow({ onArrowClicked, xPos, yPos, animationPos, animation, rotate = "", children}) {
+export default function MovingArrow({ onArrowClicked, animation, rotate = "", children}) {
   return (
     <div
-      className={`hidden md:flex space-x-4 items-end my-2 cursor-pointer
-                          lg:row-start-[${yPos.start}] lg:row-end-[${yPos.end}] 
-                          lg:col-start-[${xPos.start}] lg:col-end-[${xPos.end}]`}
+      className={`hidden md:flex space-x-4 items-end justify-end my-2 cursor-pointer`}
       onClick={onArrowClicked}
     >
       <p>{children}</p>
-      <motion.div animate={{ y: [animation.x, animation.y] }} transition={{
+      <motion.div animate={{ y: [-5,0] }} transition={{
     ease: "anticipate",
     repeat: Infinity,
     repeatType: "mirror",
