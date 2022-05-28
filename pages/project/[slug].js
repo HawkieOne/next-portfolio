@@ -105,7 +105,7 @@ export default function PostPage({
             )}
 
             {limitations && (
-              <ProjectContent title="Limitatiaons" content={limitations}/>
+              <ProjectContent title="Limitations" content={limitations}/>
             )}
 
             {when && (
