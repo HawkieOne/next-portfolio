@@ -2,8 +2,9 @@
 title: 'Wordle Clone'
 date: 'Spring 2022'
 excerpt: 'A visual clone of Wordle just for fun'
-cover_image: '/images/projects/instagram.webp'
+cover_image: '/images/projects/wordle.webp'
 github: 'https://github.com/HawkieOne/wordle-clone'
+link: 'https://hawkie.me/'
 
 description: 'A clone of Wordle, a word game by New York Times. The task in the game is to 
 guess which the word of the day is. You have 6 guesses and after every guess you get which letters
