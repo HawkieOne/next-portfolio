@@ -9,14 +9,14 @@ export default function Profile() {
                       dark:bg-primary-dark"
     >
       <Link href="/">
-        <img
-          src="/images/me.webp"
-          alt="a cartoon picture of Håkan Lindahl"
-          // width="96"
-          // height="96"
-          className="cursor-pointer"
-          title="Go to home"
-        />
+        <picture className="cursor-pointer">
+          <source srcSet="/images/me.webp" />
+          <img
+            className="cursor-pointer"
+            alt="A cartoon picture of Håkan Lindahl"
+            title="Go to home"
+          />
+        </picture>
       </Link>
       <h1 className="text-secondary dark:text-secondary-dark text-2xl font-bold">
         Håkan

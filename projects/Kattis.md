@@ -2,7 +2,7 @@
 title: 'Kattis'
 date: 'Ongoing'
 excerpt: 'A website where I have solved many programming tasks'
-cover_image: '/images/projects/kattis.webp'
+cover_image: ['/images/projects/kattis.webp', '/images/projects/kattis.avif']
 github: 'https://github.com/HawkieOne/Kattis'   
 link: 'https://open.kattis.com/users/hakan-lindahl'
 

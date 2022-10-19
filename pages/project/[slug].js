@@ -10,7 +10,6 @@ import ColorButton from "../../components/shared/ColorButton";
 import Link from "../../components/shared/Link";
 import LinkButtton from "../../components/shared/LinkButtton";
 
-
 export default function PostPage({
   frontmatter: {
     title,
@@ -29,12 +28,11 @@ export default function PostPage({
     kattisProblem2,
     kattisProblem3,
     kattisProblem4,
-    kattisProblem5
+    kattisProblem5,
   },
   slug,
   content,
 }) {
-
   const getRandomColor = () => {
     const colorArr = [
       "text-accent",
@@ -46,19 +44,18 @@ export default function PostPage({
     return colorArr[Math.floor(Math.random() * colorArr.length)];
   };
 
-
   return (
     <Scrollbar className="h-full">
       <section className="flex justify-center h-full text-secondary dark:text-secondary-dark">
         <div className="w-5/6 space-y-4 m-8 flex flex-col">
-         
-         <LinkButtton link="/projects" color="bg-secondary">Go Back</LinkButtton>
+          <LinkButtton link="/projects" color="bg-secondary">
+            Go Back
+          </LinkButtton>
 
           <div
             className="flex flex-col space-y-6 px-0 md:px-4 py-5 rounded-b-xl shadow-lg
                           border-t-4 border-accent-dark"
           >
-            
             <h1 className="text-4xl font-bold">{title}</h1>
 
             {/* Date banner */}
@@ -66,55 +63,56 @@ export default function PostPage({
               {date}
             </div>
 
-            <img
-              src={cover_image}
-              alt=""
-              className="h-32 lg:h-96 self-center my-5 rounded-lg"
-            />
+            <picture className="h-32 lg:h-96 self-center my-5 rounded-lg">
+              <source
+                srcSet={cover_image[1]}
+              />
+              <img
+                className="h-32 lg:h-96 self-center my-5 rounded-lg"
+                src={cover_image[0]}
+                alt="Project image"
+              />
+            </picture>
 
             {description && (
-              <ProjectContent title="Description" content={description}/>
+              <ProjectContent title="Description" content={description} />
             )}
 
             <div className="flex space-x-4">
               {github && (
-                <ColorButton link={github} color="bg-secondary">Github</ColorButton>
+                <ColorButton link={github} color="bg-secondary">
+                  Github
+                </ColorButton>
               )}
               {link && (
-                <ColorButton link={link} color="bg-primary">Link</ColorButton>
+                <ColorButton link={link} color="bg-primary">
+                  Link
+                </ColorButton>
               )}
             </div>
 
-            {built && (
-              <ProjectContentCode title="Built with" code={built} />
-            )}
+            {built && <ProjectContentCode title="Built with" code={built} />}
 
             {kattis && (
               <React.Fragment>
-                <ProjectContent title="Top 5 problems" content={kattis}/>
-                <ProjectContent title="Problem 1" content={kattisProblem1}/>
-                <ProjectContent title="Problem 2" content={kattisProblem2}/>
-                <ProjectContent title="Problem 3" content={kattisProblem3}/>
-                <ProjectContent title="Problem 4" content={kattisProblem4}/>
-                <ProjectContent title="Problem 5" content={kattisProblem1}/>
+                <ProjectContent title="Top 5 problems" content={kattis} />
+                <ProjectContent title="Problem 1" content={kattisProblem1} />
+                <ProjectContent title="Problem 2" content={kattisProblem2} />
+                <ProjectContent title="Problem 3" content={kattisProblem3} />
+                <ProjectContent title="Problem 4" content={kattisProblem4} />
+                <ProjectContent title="Problem 5" content={kattisProblem1} />
               </React.Fragment>
             )}
 
-            {features && (
-              <ProjectContent title="Features" content={features}/>
-            )}
+            {features && <ProjectContent title="Features" content={features} />}
 
             {limitations && (
-              <ProjectContent title="Limitations" content={limitations}/>
+              <ProjectContent title="Limitations" content={limitations} />
             )}
 
-            {when && (
-              <ProjectContent title="When" content={when}/>
-            )}
+            {when && <ProjectContent title="When" content={when} />}
 
-            {tested && (
-              <ProjectContentList title="Tested on" list={tested} />
-            )}
+            {tested && <ProjectContentList title="Tested on" list={tested} />}
 
             {/* Getting started - GitHub link */}
             <div className="flex flex-col space-y-6">
@@ -123,12 +121,10 @@ export default function PostPage({
                 <h1 className="text-4xl font-bold">Getting started</h1>
               </div>
               <p>
-                Check out the{" "}
-                <Link link={github}>Github</Link>
-                {" "} if you want to try and run this project on your machine!
+                Check out the <Link link={github}>Github</Link> if you want to
+                try and run this project on your machine!
               </p>
             </div>
-
           </div>
         </div>
       </section>

@@ -34,7 +34,11 @@ export const pdfCVpath = "/CV/CV.pdf";
 // ]
 
 export const resumeItems: ResumeItem[] = [
-  {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project based on AR ' + 
+  {title: 'Tactel', location: 'Umeå', year: 20222, description: 'After the summer I continued working for Tactel but this time ' + 
+  'adding features to a frontend flight simulator'},
+  {title: 'Tactel', location: 'Umeå', year: 20222, description: 'During the summer I worked at Tactel on a project based connected  ' + 
+  'to aircrafts'},
+  {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project ' + 
   'that will prevent injuries for persons that spend a lot of time at the computer.'},
   {title: 'Studies', location: 'Umeå university', year: 2020, description: 'During 2020 I put a lot of time on my studies and on top of ' +
   'that the pandemic started this year so I have concentrated on educating myself' + 

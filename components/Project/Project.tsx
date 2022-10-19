@@ -26,7 +26,10 @@ export default function Project({ project, index, maxIndex }) {
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
                       row-start-1 row-end-2 col-start-1 col-end-4"
       >
-        <h1 className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent" tabIndex={0}>
+        <h1
+          className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent"
+          tabIndex={0}
+        >
           {project.frontmatter.title}
         </h1>
         <p className="w-5/6 xl:w-2/3 self-start" tabIndex={0}>
@@ -88,13 +91,23 @@ export default function Project({ project, index, maxIndex }) {
         </div>
       </div>
 
-      <img
+      <picture
         className="rounded-lg lg:row-start-3 
         lg:row-end-7 lg:col-start-4 lg:col-end-10
         row-start-4 row-end-7 col-start-1 col-end-4"
-        src={project.frontmatter.cover_image}
-        alt="Project Image"
-      />
+      >
+        <source
+          srcSet={project.frontmatter.cover_image[1]}
+          media="(min-width: 600px)"
+        />
+        <img
+          className="rounded-lg lg:row-start-3 
+        lg:row-end-7 lg:col-start-4 lg:col-end-10
+        row-start-4 row-end-7 col-start-1 col-end-4"
+          src={project.frontmatter.cover_image[0]}
+          alt="Project image"
+        />
+      </picture>
 
       <div
         className="hidden lg:flex flex-col space-y-8
@@ -109,10 +122,7 @@ export default function Project({ project, index, maxIndex }) {
 
       <div className="hidden lg:flex items-end lg:row-start-7 lg:row-end-7 lg:col-start-1 lg:col-end-3">
         {index < maxIndex - 1 ? (
-          <MovingArrow
-            onArrowClicked={onNextSlide}
-            animation={mirrorAnimation}
-          >
+          <MovingArrow onArrowClicked={onNextSlide} animation={mirrorAnimation}>
             Scroll down
           </MovingArrow>
         ) : null}
