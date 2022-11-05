@@ -35,9 +35,9 @@ export const pdfCVpath = "/CV/CV.pdf";
 // ]
 
 export const resumeItems: ResumeItem[] = [
-  {title: 'Tactel', location: 'Umeå', year: 20222, description: 'After the summer I continued working for Tactel but this time ' + 
+  {title: 'Tactel', location: 'Umeå', year: 2022, description: 'After the summer I continued working for Tactel but this time ' + 
   'adding features to a frontend flight simulator'},
-  {title: 'Tactel', location: 'Umeå', year: 20222, description: 'During the summer I worked at Tactel on a project based connected  ' + 
+  {title: 'Tactel', location: 'Umeå', year: 2022, description: 'During the summer I worked at Tactel on a project based connected  ' + 
   'to aircrafts'},
   {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project ' + 
   'that will prevent injuries for persons that spend a lot of time at the computer.'},
@@ -47,7 +47,7 @@ export const resumeItems: ResumeItem[] = [
   {title: 'Student ambassador', location: 'ALTEN', year: 2019, description: 'As a student ambassador I coordinate events and activities ' +
   'aimed at students at Umeå university. This is ' + 
   'done together with other student ambassadors and ALTEN to increase the knowledge of ALTEN among students at the university.'},
-  {title: 'Tutor', location: 'Umeå Unversity', year: 2019, description: 'Together with another student, I taught an introduction ' + 
+  {title: 'Tutor', location: 'Umeå Unversity', year: 2019, description: 'Together with Signe Bennmarker, I taught an introduction ' + 
   'course in algebra to new students at the university. The responsibilities ' + 
   'varied between giving lectures, helping the students with tasks and correcting tests.'},
   {title: 'Group Leader', location: 'International Office - Umeå university', year: 2019, description: 'During the year I was a group leader '+

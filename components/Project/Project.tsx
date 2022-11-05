@@ -22,12 +22,12 @@ export default function Project({ project, index, maxIndex }) {
   return (
     <div className="h-screen grid grid-cols-3 grid-rows-7 lg:grid-cols-10 lg:grid-rows-7 px-8 py-4 relative">
       <div
-        className="flex flex-col items-center xl:items-start space-y-8 md:space-y-6 
+        className="flex flex-col items-start space-y-4 md:space-y-6 
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
                       row-start-1 row-end-2 col-start-1 col-end-4"
       >
         <h1
-          className="font-bold text-4xl md:text-6xl lg:text-8xl text-accent"
+          className="font-bold text-xl md:text-2xl lg:text-6xl text-accent"
           tabIndex={0}
         >
           {project.frontmatter.title}
@@ -39,7 +39,7 @@ export default function Project({ project, index, maxIndex }) {
         <div className="flex space-x-3 xl:space-x-6 self-start">
           <Link href={`/project/${project.slug}`} passHref>
             <button
-              className="bg-accent px-6 py-2 text-primary-dark font-bold rounded-xl self-start
+              className="bg-accent px-3 xl:px-6 py-1 xl:py-2 text-primary-dark font-bold rounded-xl self-start
                           hover:scale-110"
               onClick={() => setInitialSlideIndex(index)}
             >
@@ -49,7 +49,7 @@ export default function Project({ project, index, maxIndex }) {
           {project.frontmatter.demo && (
             <a href={project.frontmatter.demo} target="_blank" rel="noreferrer">
               <button
-                className="bg-highlight px-6 py-2 text-primary-dark font-bold rounded-xl self-start
+                className="bg-highlight px-3 xl:px-6 py-1 xl:py-2 text-primary-dark font-bold rounded-xl self-start
                         hover:scale-110"
               >
                 Demo
@@ -64,7 +64,7 @@ export default function Project({ project, index, maxIndex }) {
               rel="noreferrer"
             >
               <button
-                className="bg-secondary px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                className="bg-secondary px-3 xl:px-6 py-1 xl:py-2 text-secondary-dark font-bold rounded-xl self-start
                         hover:scale-110"
               >
                 GitHub
@@ -75,7 +75,7 @@ export default function Project({ project, index, maxIndex }) {
           {project.frontmatter.link && (
             <a href={project.frontmatter.link} target="_blank" rel="noreferrer">
               <button
-                className="bg-primary-dark px-6 py-2 text-secondary-dark font-bold rounded-xl self-start
+                className="bg-primary-dark px-3 xl:px-6 py-1 xl:py-2 text-secondary-dark font-bold rounded-xl self-start
                         hover:scale-110 dark:bg-primary dark:text-secondary"
               >
                 Link
@@ -145,7 +145,7 @@ export default function Project({ project, index, maxIndex }) {
                       lg:row-start-7 lg:row-end-7 lg:col-start-11 lg:col-end-11
                       row-start-2 row-end-2 col-start-2 col-end-2"
       >
-        <h1 className="font-bold text-4xl md:text-6xl lg:text-9xl text-accent">
+        <h1 className="font-bold md:text-4xl lg:text-8xl xl:text-9xl text-accent">
           0{index + 1}
         </h1>
       </div>

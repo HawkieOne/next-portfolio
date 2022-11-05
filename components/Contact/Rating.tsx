@@ -10,7 +10,7 @@ export default function Rating({ setRating }) {
 
   return (
     <div className="flex flex-col space-y-2 items-center">
-      <h2 className="" tabIndex={0}>Rate my portfolio!</h2>
+      <h2 className="xl:text-md" tabIndex={0}>Rate my portfolio!</h2>
       <div className="rating rating-md gap-1">
         <input
           type="radio"

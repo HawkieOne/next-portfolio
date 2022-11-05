@@ -10,7 +10,7 @@ export default function Profile() {
     >
       <Link href="/">
         <picture className="cursor-pointer">
-          <source srcSet="/images/me.avif" />
+          <source srcSet="/images/me.webp" />
           <img
             src="/images/me.webp"
             className="cursor-pointer"
