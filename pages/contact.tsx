@@ -13,12 +13,12 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col lg:flex-row justify-center items-end lg:items-center">
+    <div className="h-screen flex flex-col lg:flex-row justify-center lg:justify-center items-end lg:items-start">
       <div
         className="h-full text-secondary dark:text-secondary-dark 
-                      flex flex-col items-center justify-around 2xl:justify-center 2xl:space-y-12 basis-full xl:basis-1/2"
+                      flex flex-col items-center justify-around 2xl:justify-around 2xl:space-y-12 basis-full xl:basis-1/2"
       >
-        <div className="flex justify-center space-x-4 items-center pt-8 md:pt-0">
+        <div className="flex justify-center space-x-4 items-center pt-8 md:pt-0 justify-self-start">
           <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
           <div className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
             <AnimatedWord word="Contact me" />
@@ -46,21 +46,21 @@ export default function Contact() {
 
         <ContactForm />
 
-        <div className="w-4/5 text-center text-secondary dark:text-secondary-dark space-y-4">
+        {/* <div className="w-4/5 text-center text-secondary dark:text-secondary-dark space-y-4">
           <p className="hidden md:block" tabIndex={0}>
             You can contact me on any of these social medias as well
           </p>
           <Socials />
-        </div>
+        </div> */}
       </div>
 
       <div className="hidden xl:block w-0.5 h-full bg-secondary"></div>
 
       <div
-        className="hidden xl:flex flex-col text-secondary items-center justify-center basis-1/2
-                       space-y-8 dark:text-secondary-dark dark:border-l-secondary"
+        className="hidden h-full xl:flex flex-col text-secondary items-center justify-around basis-1/2 
+                 dark:text-secondary-dark dark:border-l-secondary"
       >
-        <div className="flex justify-center space-x-4 items-center">
+        <div className="flex space-x-4 items-center">
           <span className="rounded-md w-24 h-1 bg-highlight"></span>
           <div className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
             <AnimatedWord word="Draw" />
@@ -68,7 +68,7 @@ export default function Contact() {
           <span className="rounded-md w-24 h-1 bg-highlight"></span>
         </div>
         <p
-          className="w-4/5 mb-16 mt-8 text-secondary dark:text-secondary-dark"
+          className="w-4/5 mt-8 text-secondary dark:text-secondary-dark"
           tabIndex={0}
         >
           You can also draw me a picture! Draw the picture and the press send to

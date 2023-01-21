@@ -26,6 +26,7 @@ export type ResumeItem = {
   location: string,
   year: number,
   description: string,
+  innerHtml?: boolean,
 }
 
 export interface ColourOption {

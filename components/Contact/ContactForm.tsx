@@ -102,7 +102,7 @@ export default function ContactForm() {
   return (
     <div className="flex justify-center items-center">
       <form
-        className="flex flex-col xl:space-y-4 w-4/5"
+        className="flex flex-col space-y-4 xl:space-y-4 w-4/5"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex justify-between space-x-4">

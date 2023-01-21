@@ -5,7 +5,7 @@ import IconButton from "./IconButton";
 import { IoIosColorPalette } from "react-icons/io";
 import { removeNotifications, showError, showInfo, showSuccess } from "../../utils/notificationsFunctions";
 import Popup from "reactjs-popup";
-import { GithubPicker } from "react-color";
+import { SketchPicker } from "react-color";
 import { useTheme } from "next-themes";
 import axios from "axios";
 import LoadingOverlay from "react-loading-overlay-ts";
@@ -69,63 +69,61 @@ export default function DrawArea() {
   };
 
   return (
-    <div className="flex flex-col space-y-4">
+    <div className="flex flex-col justify-start space-y-4">
       <div className="flex justify-center items-center relative">
-        <div className="flex flex-col justify-center items-center">
-          <Popup
-            trigger={
-              <button
-                className="absolute left-0 top-0 bg-gray-300 rounded-lg shadow-md p-2 m-3
-                             text-secondary z-10"
-                onClick={changeColor}
-                aria-label="Change color of brush"
-              >
-                <IoIosColorPalette size={30} />
-              </button>
-            }
-            position="right center"
-          >
-            <GithubPicker
-              color={color}
-              colors={[
-                "#B80000",
-                "#DB3E00",
-                "#FCCB00",
-                "#008B02",
-                "#006B76",
-                "#1273DE",
-                "#004DCF",
-                "#5300EB",
-                "#EB9694",
-                "#FAD0C3",
-                "#FEF3BD",
-                "#C1E1C5",
-                "#BEDADC",
-                "#C4DEF6",
-                "#BED3F3",
-                "#D4C4FB",
-                "#fff",
-                "#000",
-              ]}
-              onChangeComplete={changeColor}
-              triangle="hide"
-            />
-          </Popup>
-          <LoadingOverlay active={isLoading} spinner={<SyncLoader color="#3FC1C9"/>}>
-            <CanvasDraw
-              lazyRadius={5}
-              brushRadius={4}
-              className="border-2 border-secondary-dark dark:border-secondary"
-              canvasWidth={600}
-              canvasHeight={600}
-              hideGrid={true}
-              backgroundColor={canvasColor}
-              catenaryColor="#282828"
-              brushColor={color}
-              ref={drawRef}
-            />
-          </LoadingOverlay>
-        </div>
+        <Popup
+          trigger={
+            <button
+              className="absolute left-0 top-0 bg-gray-300 rounded-lg shadow-md p-2 m-3
+                           text-secondary z-10"
+              onClick={changeColor}
+              aria-label="Change color of brush"
+            >
+              <IoIosColorPalette size={30} />
+            </button>
+          }
+          position="right center"
+        >
+          <SketchPicker
+            color={color}
+            colors={[
+              "#B80000",
+              "#DB3E00",
+              "#FCCB00",
+              "#008B02",
+              "#006B76",
+              "#1273DE",
+              "#004DCF",
+              "#5300EB",
+              "#EB9694",
+              "#FAD0C3",
+              "#FEF3BD",
+              "#C1E1C5",
+              "#BEDADC",
+              "#C4DEF6",
+              "#BED3F3",
+              "#D4C4FB",
+              "#fff",
+              "#000",
+            ]}
+            onChangeComplete={changeColor}
+            triangle="hide"
+          />
+        </Popup>
+        <LoadingOverlay active={isLoading} spinner={<SyncLoader color="#3FC1C9"/>}>
+          <CanvasDraw
+            lazyRadius={5}
+            brushRadius={4}
+            className="border-2 border-secondary-dark dark:border-secondary"
+            hideGrid={true}
+            canvasWidth={600}
+            canvasHeight={600}
+            backgroundColor={canvasColor}
+            catenaryColor="#282828"
+            brushColor={color}
+            ref={drawRef}
+          />
+        </LoadingOverlay>
       </div>
 
       {/* Buttons */}

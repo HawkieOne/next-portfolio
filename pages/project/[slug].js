@@ -64,9 +64,7 @@ export default function PostPage({
             </div>
 
             <picture className="h-32 lg:h-96 self-center my-5 rounded-lg">
-              <source
-                srcSet={cover_image[1]}
-              />
+              <source srcSet={cover_image[1]} />
               <img
                 className="h-32 lg:h-96 self-center my-5 rounded-lg"
                 src={cover_image[0]}
@@ -115,16 +113,18 @@ export default function PostPage({
             {tested && <ProjectContentList title="Tested on" list={tested} />}
 
             {/* Getting started - GitHub link */}
-            <div className="flex flex-col space-y-6">
-              <div className="flex items-center space-x-6">
-                <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
-                <h1 className="text-4xl font-bold">Getting started</h1>
+            {github && (
+              <div className="flex flex-col space-y-6">
+                <div className="flex items-center space-x-6">
+                  <span className="rounded-md w-6 md:w-12 h-1 bg-highlight"></span>
+                  <h1 className="text-4xl font-bold">Getting started</h1>
+                </div>
+                <p>
+                  Check out the <Link link={github}>Github</Link> if you want to
+                  try and run this project on your machine!
+                </p>
               </div>
-              <p>
-                Check out the <Link link={github}>Github</Link> if you want to
-                try and run this project on your machine!
-              </p>
-            </div>
+            )}
           </div>
         </div>
       </section>

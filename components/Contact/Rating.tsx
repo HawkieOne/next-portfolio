@@ -15,7 +15,7 @@ export default function Rating({ setRating }) {
         <input
           type="radio"
           name="heart1"
-          className="mask mask-heart bg-red-400 focus:bg-accent"
+          className="mask mask-heart bg-red-400 focus:bg-red-600"
           checked={index === 0}
           onChange={onChange}
           value={0}
@@ -24,7 +24,7 @@ export default function Rating({ setRating }) {
         <input
           type="radio"
           name="heart2"
-          className="mask mask-heart bg-orange-400 focus:bg-accent"
+          className="mask mask-heart bg-red-400 focus:bg-red-600"
           checked={index === 1}
           onChange={onChange}
           value={1}
@@ -34,7 +34,7 @@ export default function Rating({ setRating }) {
         <input
           type="radio"
           name="heart3"
-          className="mask mask-heart bg-yellow-400 focus:bg-accent"
+          className="mask mask-heart bg-red-400 focus:bg-red-600"
           checked={index === 2}
           onChange={onChange}
           value={2}
@@ -44,7 +44,7 @@ export default function Rating({ setRating }) {
         <input
           type="radio"
           name="heart4"
-          className="mask mask-heart bg-lime-400 focus:bg-accent"
+          className="mask mask-heart bg-red-400 focus:bg-red-600"
           checked={index === 3}
           onChange={onChange}
           value={3}
@@ -54,7 +54,7 @@ export default function Rating({ setRating }) {
         <input
           type="radio"
           name="heart5"
-          className="mask mask-heart bg-green-400 focus:bg-accent"
+          className="mask mask-heart bg-red-400 focus:bg-red-600"
           checked={index === 4}
           onChange={onChange}
           value={4}
