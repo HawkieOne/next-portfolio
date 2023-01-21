@@ -1,1 +1,1 @@
-npm run build && rsync -avzh ./build/ cpanel:hakanlindahl.com
+npm run export && rsync -avzh ./_static/ cpanel:hakanlindahl.com
