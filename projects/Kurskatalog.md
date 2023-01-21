@@ -33,7 +33,7 @@ built: [
 },
 ]
 features: 'Every common feacture that a student can have regarding a education plan is covered by this tool to a certain extent. No matter in which pace you are studying in, if you take a break for a year, if you work part time or if you need to make changes during the year it is covered by this tool. There are also statistic about your education and keyboard shortcuts to improve you workflow. If you would like to share your education plan with a friend you can easily download the plan and send it to your friend which can upload it and see it in this tool.'
-limitations: 'The biggest limitation is that the tool is not made for mobile devices an will not work at all on a mobile device. This was decided from the beginning. Another limitation is that is it not possible to drag a course between years. This is a limitation in the library that is used for enabling drag and drop in the tool.'
+limitations: 'The biggest limitation is that the tool is not made for mobile devices and will not work at all on a mobile device. This was decided from the beginning. Another limitation is that it is not possible to drag a course between years. This is a limitation in the library that is used for enabling drag and drop in the tool.'
 when: 'This project was done in co-operation with another student during a project course at Umeå university during the fall term of 2022.'
 tested: ['Google Chrome 99.0.4844.84']
 ---
