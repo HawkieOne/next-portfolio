@@ -1,6 +1,14 @@
 import React from "react";
+import { BuildLibrary } from "../../interfaces";
+interface ProjectContentProps {
+  title: string;
+  code: BuildLibrary[];
+}
 
-export default function ProjectContentCode({ title, code} ) {
+export default function ProjectContentCode({
+  title,
+  code,
+}: ProjectContentProps) {
   const getRandomColor = () => {
     const colorArr = [
       "text-accent",
@@ -19,7 +27,7 @@ export default function ProjectContentCode({ title, code} ) {
         <h1 className="text-4xl font-bold">{title}</h1>
       </div>
       <div className="mockup-code bg-zinc-700 dark:bg-[#1a1c23] shadow">
-        {code.map((item, index) => (
+        {code.map((item) => (
           <a href={item.link} target="_blank" rel="noreferrer">
             <pre
               data-prefix=">"

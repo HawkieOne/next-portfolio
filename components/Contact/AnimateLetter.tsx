@@ -1,7 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AnimateLetter({ letter }) {
+
+interface AnimateLetterProps {
+  letter: string;
+}
+
+export default function AnimateLetter({ letter } : AnimateLetterProps) {
   return (
     <motion.div
       whileHover={{

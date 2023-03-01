@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import WelcomeText from "../components/Home/WelcomeText";
-import { currentProjectIndex } from "../atoms/atoms";
+import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
-import { mirrorAnimation } from "../utils/animation";
+import { currentProjectIndex } from "../atoms/atoms";
+import WelcomeText from "../components/Home/WelcomeText";
 import { imgDrawingPath, pdfCVpath, svgSendPath } from "../utils/data";
 
 const IndexPage = () => {

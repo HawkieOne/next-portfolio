@@ -1,20 +1,24 @@
-import React from "react";
-import matter from "gray-matter";
 import fs from "fs";
+import matter from "gray-matter";
 import path from "path";
-import Project from "../components/Project/Project";
-import ReactFullpage from "@fullpage/react-fullpage";
-import { sortByDate } from "../utils/functions";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { useRecoilValue } from "recoil";
+import { EffectFade, Keyboard, Mousewheel, Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/keyboard";
 import "swiper/css/mousewheel";
-import { EffectFade, Keyboard, Mousewheel, Pagination } from "swiper";
-import { useRecoilState, useRecoilValue } from "recoil";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { currentProjectIndex } from "../atoms/atoms";
+import Project from "../components/Project/Project";
+import { IProject } from "../interfaces";
+import { sortByDate } from "../utils/functions";
 
-export default function Projects({ projects }) {
+interface ProjectsProps {
+  projects: IProject[];
+}
+
+export default function Projects({ projects }: ProjectsProps) {
+  projects.sort(a => (a.frontmatter.demo ? -1 : 1));
   const initialSlideIndex = useRecoilValue(currentProjectIndex);
   return (
     <div className="h-full w-full">
@@ -31,14 +35,13 @@ export default function Projects({ projects }) {
         modules={[Mousewheel, Pagination, Keyboard, EffectFade]}
         className="mySwiper"
       >
-        {projects.map((project, index) => (
+        {projects.map((project, index: number) => (
           <SwiperSlide key={index}>
             <Project
               key={index}
               project={project}
               index={index}
               maxIndex={projects.length}
-              // state={state}
             />
           </SwiperSlide>
         ))}

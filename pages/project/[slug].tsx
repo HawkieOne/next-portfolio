@@ -48,7 +48,7 @@ export default function PostPage({
     <Scrollbar className="h-full">
       <section className="flex justify-center h-full text-secondary dark:text-secondary-dark">
         <div className="w-5/6 space-y-4 m-8 flex flex-col">
-          <LinkButtton link="/projects" color="bg-secondary">
+          <LinkButtton color="bg-secondary">
             Go Back
           </LinkButtton>
 

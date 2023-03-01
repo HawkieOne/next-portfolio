@@ -1,7 +1,4 @@
-import Link from "next/link";
-import React from "react";
-import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
-// import { footerItems } from "../../utils/data";
+import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 export default function Socials() {
 

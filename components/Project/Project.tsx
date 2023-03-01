@@ -1,13 +1,17 @@
 import Link from "next/link";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useSwiper, useSwiperSlide } from "swiper/react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
+import { useSwiper } from "swiper/react";
 import { currentProjectIndex } from "../../atoms/atoms";
-import { mirrorAnimation } from "../../utils/animation";
+import { IProject } from "../../interfaces";
 import MovingArrow from "./MovingArrow";
 
-export default function Project({ project, index, maxIndex }) {
+interface ProjectProps {
+  project: IProject;
+  index: number;
+  maxIndex: number;
+}
+
+export default function Project({ project, index, maxIndex }: ProjectProps) {
   const swiper = useSwiper();
   const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
 
@@ -122,19 +126,13 @@ export default function Project({ project, index, maxIndex }) {
 
       <div className="hidden lg:flex items-end lg:row-start-7 lg:row-end-7 lg:col-start-1 lg:col-end-3">
         {index < maxIndex - 1 ? (
-          <MovingArrow onArrowClicked={onNextSlide} animation={mirrorAnimation}>
-            Scroll down
-          </MovingArrow>
+          <MovingArrow onArrowClicked={onNextSlide}>Scroll down</MovingArrow>
         ) : null}
       </div>
 
       <div className="hidden lg:block lg:row-start-1 lg:row-end-1 lg:col-start-10 lg:col-end-12">
         {index === maxIndex - 1 ? (
-          <MovingArrow
-            onArrowClicked={onPrevSlide}
-            animation={mirrorAnimation}
-            rotate="rotate-180"
-          >
+          <MovingArrow onArrowClicked={onPrevSlide} rotate="rotate-180">
             Scroll Up
           </MovingArrow>
         ) : null}
@@ -146,7 +144,8 @@ export default function Project({ project, index, maxIndex }) {
                       row-start-2 row-end-2 col-start-2 col-end-2"
       >
         <h1 className="font-bold md:text-4xl lg:text-8xl xl:text-9xl text-accent">
-          0{index + 1}
+          {index < 9 ? 0 : ""}
+          {index + 1}
         </h1>
       </div>
     </div>

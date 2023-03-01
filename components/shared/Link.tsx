@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function Link({ link, children }) {
+interface LinkProps {
+  link: string;
+  children: React.ReactNode;
+}
+
+export default function Link({ link, children }: LinkProps) {
   return (
     <a href={link} className="text-highlight" target="_blank" rel="noreferrer">
       {children}

@@ -1,7 +1,4 @@
-import { ColourOption, FooterItem, Link, User } from '../interfaces'
-import { HeaderItem } from '../interfaces'
-import { ResumeItem } from '../interfaces'
-import { FaFacebookF, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { HeaderItem, Link, ResumeItem } from '../interfaces';
 
 export const headerItems: HeaderItem[] = [
   { text: 'Home', link: "/"},

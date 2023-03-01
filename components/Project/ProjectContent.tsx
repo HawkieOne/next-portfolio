@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function ProjectContent({ title, content}) {
+interface ProjectContentProps {
+  title: string;
+  content: string;
+}
+
+export default function ProjectContent({
+  title,
+  content,
+}: ProjectContentProps) {
   return (
     <div className="flex flex-col space-y-6">
       <div className="flex items-center space-x-6">

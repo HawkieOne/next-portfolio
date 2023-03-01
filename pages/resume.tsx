@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Scrollbar from "react-scrollbars-custom";
-import { resumeItems } from "../utils/data";
-import { getYearsInArray } from "../utils/functions";
 import { motion } from "framer-motion";
-import AnimateLetter from "../components/Contact/AnimateLetter";
-import AnimatedWord from "../components/shared/AnimatedWord";
+import { useEffect } from "react";
+import Scrollbar from "react-scrollbars-custom";
 import { useSetRecoilState } from "recoil";
 import { currentProjectIndex } from "../atoms/atoms";
+import AnimatedWord from "../components/shared/AnimatedWord";
+import { resumeItems } from "../utils/data";
+import { getYearsInArray } from "../utils/functions";
 
 export default function Resume() {
-
   const setInitialSlideIndex = useSetRecoilState(currentProjectIndex);
   useEffect(() => {
     setInitialSlideIndex(0);
-  }, [])
+  }, []);
 
   const years = getYearsInArray(resumeItems);
-  const resumeYearsArr = years.map((year, index) => {
+  const resumeYearsArr = years.map((year) => {
     return {
       year: year,
       entries: resumeItems.filter((item) => item.year === year),
@@ -59,10 +57,9 @@ export default function Resume() {
                   {year.entries.map((entry, i) => {
                     return (
                       <motion.div
-                      key={i}
+                        key={i}
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        // viewport={{ once: true }}
                         className="relative even:self-end odd:self-start w-full md:w-1/2 
                                 flex odd:flex-row-reverse items-center
                                 group-even:self-end group-even:only:flex-row 
@@ -80,13 +77,22 @@ export default function Resume() {
                           dark:border-b-secondary
                           text-secondary shadow-lg"
                         >
-                          <h2 className="self-center text-xl md:text-2xl lg:text-3xl text-accent" tabIndex={0}>
+                          <h2
+                            className="self-center text-xl md:text-2xl lg:text-3xl text-accent"
+                            tabIndex={0}
+                          >
                             {entry.title}
                           </h2>
-                          <h3 className="self-center text-md md:text-xl lg:text-2xl text-highlight" tabIndex={0}>
+                          <h3
+                            className="self-center text-md md:text-xl lg:text-2xl text-highlight"
+                            tabIndex={0}
+                          >
                             {entry.location}
                           </h3>
-                          <p className="dark:text-secondary-dark text-s md:text-md lg:text-base" tabIndex={0}>
+                          <p
+                            className="dark:text-secondary-dark text-s md:text-md lg:text-base"
+                            tabIndex={0}
+                          >
                             {entry.description}
                           </p>
                         </motion.div>

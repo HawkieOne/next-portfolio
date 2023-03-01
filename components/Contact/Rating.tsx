@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+
+interface RatingProps {
+  setRating: (value: number) => void;
+}
 
 export default function Rating({ setRating }) {
   const [index, setIndex] = useState(2);
 
-  const onChange = (e) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIndex(parseInt(e.target.value));
     setRating(parseInt(e.target.value) + 1);
-  }
+  };
 
   return (
     <div className="flex flex-col space-y-2 items-center">
-      <h2 className="xl:text-md" tabIndex={0}>Rate my portfolio!</h2>
+      <h2 className="xl:text-md" tabIndex={0}>
+        Rate my portfolio!
+      </h2>
       <div className="rating rating-md gap-1">
         <input
           type="radio"
@@ -38,8 +44,8 @@ export default function Rating({ setRating }) {
           checked={index === 2}
           onChange={onChange}
           value={2}
-          id="heart3" 
-          aria-label="3 hearts"         
+          id="heart3"
+          aria-label="3 hearts"
         />
         <input
           type="radio"
@@ -61,7 +67,9 @@ export default function Rating({ setRating }) {
           id="heart5"
           aria-label="5 hearts"
         />
-        <label htmlFor="heart5" className="hidden">5 hearts</label>
+        <label htmlFor="heart5" className="hidden">
+          5 hearts
+        </label>
       </div>
     </div>
   );

@@ -2,15 +2,37 @@ import React from "react";
 import { motion } from "framer-motion";
 import Error from "../shared/Error";
 import _ from "lodash";
+import { FieldError, UseFormRegister } from "react-hook-form";
+import { FormInputs } from "../../interfaces";
 
-export default function FormField({ form, typeObj, type, value, onChange, initPos, error}) {
+interface FormFieldProps {
+  form: UseFormRegister<FormInputs>;
+  typeObj: { required: string };
+  type: "name" | "email" | "subject";
+  value: string;
+  onChange: (value: string) => void;
+  initPos: number;
+  error: FieldError;
+}
+
+export default function FormField({
+  form,
+  typeObj,
+  type,
+  value,
+  onChange,
+  initPos,
+  error,
+}: FormFieldProps) {
   return (
     <motion.div
       animate={{ x: [initPos, 0] }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="basis-1/2"
     >
-      <label htmlFor={type} className="hidden" >{_.capitalize(type)}</label>
+      <label htmlFor={type} className="hidden">
+        {_.capitalize(type)}
+      </label>
       <input
         type="text"
         placeholder={_.capitalize(type)}

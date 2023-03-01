@@ -1,7 +1,11 @@
 import React from "react";
 import AnimateLetter from "../Contact/AnimateLetter";
 
-export default function AnimatedWord({ word }) {
+interface AnimatedWordProps {
+  word: string;
+}
+
+export default function AnimatedWord({ word } : AnimatedWordProps) {
   return (
     <div className="flex">
       {[...word].map((letter, index) =>

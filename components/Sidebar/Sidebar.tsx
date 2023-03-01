@@ -1,11 +1,8 @@
-import Link from "next/link";
-import React, { useState } from "react";
 import { headerItems } from "../../utils/data";
 import ModeSwitch from "./ModeSwitch";
 import Profile from "./Profile";
 import SidebarLink from "./SidebarLink";
 import Socials from "./Socials";
-import { AiOutlineMenu } from "react-icons/ai";
 
 export default function Header() {
   return (

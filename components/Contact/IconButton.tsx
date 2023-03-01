@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function IconButton({ type, text, svgPath, click }) {
+interface IconButtonProps {
+  type: "button" | "submit" | "reset";
+  text: string;
+  svgPath: string;
+  click: () => void;
+}
+
+export default function IconButton({ type, text, svgPath, click } : IconButtonProps) {
   return (
     <button
       type={type}

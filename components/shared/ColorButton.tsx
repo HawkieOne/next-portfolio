@@ -1,6 +1,16 @@
 import React from "react";
 
-export default function ColorButton({ link, color, children}) {
+interface ColorButtonProps {
+  link: string;
+  color: string;
+  children: React.ReactNode;
+}
+
+export default function ColorButton({
+  link,
+  color,
+  children,
+}: ColorButtonProps) {
   return (
     <a href={link} target="_blank" rel="noreferrer">
       <button
