@@ -32,10 +32,20 @@ export const pdfCVpath = "/CV/CV.pdf";
 // ]
 
 export const resumeItems: ResumeItem[] = [
-  {title: 'Tactel', location: 'Umeå', year: 2022, description: 'After the summer I continued working for Tactel but this time ' + 
-  'adding features to a frontend flight simulator'},
-  {title: 'Tactel', location: 'Umeå', year: 2022, description: 'During the summer I worked at Tactel on a project based connected  ' + 
-  'to aircrafts'},
+  {title: 'Tactel - Full Time', location: 'Umeå', year: 2023, description: 'Today I work at Tactel full time in one of their projects. I work ' + 
+  'with development of IFE systems in Kotlin and Android.'},
+  {title: 'D.Sc in Computing Science', location: 'Umeå University', year: 2023, description: 'Alongside my  M.Sc.Eng in Interaction Technology and Design ' +
+  ' I also got a D.Sc in Computing Science.'},
+  {title: 'M.Sc.Eng in Interaction Technology and Design', location: 'Umeå University', year: 2023, description: 'When my master thesis was done ' +
+  ' I got my degree and my time at Umeå University as a student had come to its end. After five years of studies I was done.'}  ,
+  {title: 'Tactel - Master Thesis', location: 'Umeå', year: 2023, description: 'During the spring I did my master thesis at Tactel. ' +
+  'The master thesis was about customizing the WCAG guidelines to work for IFE systems. This resulted in IFCAG -  a customized set of guidelines ' + 
+  'designed to work for IFE systems.'},
+  {title: 'Tactel - Part Time', location: 'Umeå', year: 2022, description: 'After the summer I continued working part time for Tactel. The task ' +
+  'was to maintain an develop new features for a simulating flight routes for one of their products. This was a fullstack project where ' + 
+  'I was responsible for alla parts of the simulator'},
+  {title: 'Tactel - Summerjob', location: 'Umeå', year: 2022, description: 'During the summer I worked at Tactel on a project based connected  ' + 
+  'to IFE systems on aircrafts. The work was frontend in ReactJS and together with a team which worked in agile sprints.'},
   {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project ' + 
   'that will prevent injuries for persons that spend a lot of time at the computer.'},
   {title: 'Studies', location: 'Umeå university', year: 2020, description: 'During 2020 I put a lot of time on my studies and on top of ' +
@@ -53,5 +63,5 @@ export const resumeItems: ResumeItem[] = [
   'and I were responsible for 50 exchange students.'},
   {title: 'M.Sc.Eng in Interaction Technology and Design', location: 'Umeå University', year: 2018, description: 'I started a Master of science in engineering ' +
   'at Umeå University. The program is 5 years and focuses' +
-  'on a broad spectrum of subjects where the main focus is on interaction technology and design. '},
+  ' on a broad spectrum of subjects where the main focus is on interaction technology and design. '},
 ]
