@@ -35,7 +35,7 @@ const IndexPage = () => {
           title=""
           download
           className="p-4 shadow-lg rounded-md cursor-pointer
-                  border bg-primary-dark border-secondary dark:border-accent-dark
+                  border border-secondary dark:bg-primary-dark dark:border-accent-dark
                   hover:scale-105 hover:border-accent-dark dark:hover:border-highlight 
                   focus:scale-105 focus:outline-accent
                   dark:focus:scale-105 dark:focus:outline-accent active:outline-accent"

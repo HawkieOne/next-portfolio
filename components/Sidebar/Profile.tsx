@@ -10,7 +10,7 @@ export default function Profile() {
     >
       <Link href="/">
         <picture className="cursor-pointer">
-          <source srcSet="/images/me.webp" />
+          <source srcSet="./images/me.webp" />
           <img
             src="/images/me.webp"
             className="cursor-pointer"
@@ -23,7 +23,7 @@ export default function Profile() {
         Håkan
       </h1>
       <h2 className="text-secondary dark:text-secondary-dark text-xs">
-        Web developer
+        System developer
       </h2>
     </section>
   );

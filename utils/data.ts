@@ -32,7 +32,9 @@ export const pdfCVpath = "/CV/CV 2025.pdf";
 // ]
 
 export const resumeItems: ResumeItem[] = [
-  {title: 'Tactel - Full Time', location: 'Umeå', year: 2023, description: 'Today I work at Tactel full time in one of their projects. I work ' + 
+  {title: 'Tactel', location: 'Umeå', year: 2025, description: 'In february I started as Release Train Engineer(RTE) alongside my role as system' +
+    'developer. As RTE I work closely with product owners and scrum masters to plan and coordinate PI Plannings following the SAFe framework.'},
+  {title: 'Tactel', location: 'Umeå', year: 2023, description: 'Began working at Tactel full time in one of their projects. I work ' + 
   'with development of IFE systems in Kotlin and Android.'},
   {title: 'D.Sc in Computing Science', location: 'Umeå University', year: 2023, description: 'Alongside my  M.Sc.Eng in Interaction Technology and Design ' +
   ' I also got a D.Sc in Computing Science.'},

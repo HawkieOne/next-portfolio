@@ -40,7 +40,7 @@ export default function WelcomeText() {
           animate={{ opacity: [0, 1] }}
           transition={{ delay: 4 }}
         >
-          <span className="underline decoration-highlight/80 underline-offset-4">web&nbsp;</span>
+          <span className="underline decoration-highlight/80 underline-offset-4">system&nbsp;</span>
           <span className="underline decoration-highlight/80 underline-offset-4">developer</span>
         </motion.div>
       </div>
