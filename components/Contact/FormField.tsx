@@ -34,7 +34,7 @@ export default function FormField({
         {_.capitalize(type)}
       </label>
       <input
-        type="text"
+        type={type}
         placeholder={_.capitalize(type)}
         {...form(type, typeObj)}
         onChange={(e) => onChange(e.target.value)}

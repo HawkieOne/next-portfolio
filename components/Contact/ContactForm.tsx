@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import IconButton from "./IconButton";
 import { showError, showSuccess, showInfo, removeNotifications } from "../../utils/notificationsFunctions";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import Rating from "./Rating";
 import FormField from "./FormField";
 import FormTextArea from "./FormTextArea";
 import { FormInputs } from "../../interfaces";
+import { useForm as useFormspree } from '@formspree/react';
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -14,7 +14,27 @@ export default function ContactForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [rating, setRating] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [state, handleFormSpreeSubmit, reset] = useFormspree("xdklqeky");
+
+
+  if (state.submitting) {
+    removeNotifications();
+    showInfo("Sending email");
+  }
+  if (state.succeeded) {
+    removeNotifications();
+    showSuccess("Mail was successfully sent!");
+    setName("");
+    setEmail("");
+    setSubject("");
+    setMessage("");
+    setRating(null);
+    reset()
+  }
+  if (state.errors != null) {
+    removeNotifications();
+    showError("Email could not be sent due to server errors!");
+  }
 
   const {
     register,
@@ -38,41 +58,7 @@ export default function ContactForm() {
       showError("Mail can not contain field with only spaces");
       return;
     }
-    if (!isLoading) {
-      showInfo("Sending email");
-      // event.preventDefault();
-      const nrOfHearts = "♥".repeat(rating);
-      const variables = {
-        from_email: email,
-        from_name: name,
-        subject: subject,
-        message: message,
-        rating: nrOfHearts,
-      };
-
-      resetForm();
-
-      // * https://hakanlindahl.com/server/
-      // * https://hakanlindahl.com/serverContact/
-      // * "http://localhost:9000/serverContact/
-      axios({
-        method: "post",
-        url: "https://hakanlindahl.com/serverContact/",
-        data: variables,
-      })
-        .then((res) => {
-          removeNotifications();
-          showSuccess("Mail was successfully sent!");
-        })
-        .catch((err) => {
-          removeNotifications();
-          console.error(
-            "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
-            err
-          );
-          showError("Email could not be sent!");
-        });
-    }
+    handleFormSpreeSubmit(event)
   };
 
   const isFormEmpty = () => {
@@ -89,14 +75,6 @@ export default function ContactForm() {
 
   const checkIfOnlyWhitespace = (str) => {
     return !str.replace(/\s/g, "").length;
-  };
-
-  const resetForm = () => {
-    setName("");
-    setEmail("");
-    setSubject("");
-    setMessage("");
-    setRating(null);
   };
 
   return (
@@ -155,7 +133,7 @@ export default function ContactForm() {
             type="submit"
             text="Send"
             svgPath="/svg/send.svg"
-            click={() => {}}
+            click={() => { }}
           />
         </div>
       </form>

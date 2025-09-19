@@ -33,36 +33,6 @@ export default function DrawArea() {
   const undo = () => {
     drawRef.current.undo();
   };
-  const send = () => {
-    if (!isLoading) {
-      setLoadingOverlay();
-      showInfo("Sending drawing")
-      const variables = {
-        content: drawRef.current.getDataURL("image/jpeg"),
-      };
-
-      // https://hakanlindahl.com/serverDrawing/
-      axios({
-        method: "post",
-        url: "https://hakanlindahl.com/serverDrawing/",
-        data: variables,
-      })
-        .then((res) => {
-          removeNotifications();
-          showSuccess("Drawing was successfully sent!");
-          setLoadingOverlay();
-        })
-        .catch((err) => {
-          removeNotifications();
-          console.error(
-            "Oh well, the mail could not be sent. Here some thoughts on the error that occured:",
-            err
-          );
-          showError(err.message);
-          setLoadingOverlay();
-        });
-    }
-  };
 
   const changeColor = (color) => {
     setColor(color.hex);
@@ -129,12 +99,6 @@ export default function DrawArea() {
       {/* Buttons */}
 
       <div className="flex justify-around">
-        <IconButton
-          type="button"
-          text="Send"
-          svgPath="/svg/send.svg"
-          click={send}
-        />
         <IconButton
           type="button"
           text="Download"

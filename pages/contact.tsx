@@ -71,9 +71,8 @@ export default function Contact() {
           className="w-4/5 mt-8 text-secondary dark:text-secondary-dark"
           tabIndex={0}
         >
-          You can also draw me a picture! Draw the picture and the press send to
-          send the drawing to me. Press download to download it to your
-          computer.
+          If you want to you can create a drawing here! Choosel color, draw something and then press 
+          download to save it to your computer and keep a fine memory of this moment :)
         </p>
         <DrawArea />
       </div>

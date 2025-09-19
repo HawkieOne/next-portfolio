@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer" className="drawer-overlay"></label>
-            <div className="w-32 overflow-y-auto">
+            <div className="w-36 overflow-y-auto">
               <Sidebar />
             </div>
           </div>

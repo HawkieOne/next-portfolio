@@ -8,6 +8,7 @@
     "export": "npm run build && next export -o _static"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@fullpage/react-fullpage": "^0.1.23",
     "@heroicons/react": "^1.0.6",
     "axios": "^0.26.1",
