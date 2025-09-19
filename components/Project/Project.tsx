@@ -101,14 +101,14 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
         row-start-4 row-end-7 col-start-1 col-end-4"
       >
         <source
-          srcSet={project.frontmatter.cover_image[1]}
+          srcSet={'/' + project.frontmatter.cover_image[1]}
           media="(min-width: 600px)"
         />
         <img
           className="rounded-lg lg:row-start-3 
         lg:row-end-7 lg:col-start-4 lg:col-end-10
         row-start-4 row-end-7 col-start-1 col-end-4"
-          src={project.frontmatter.cover_image[0]}
+          src={'/' + project.frontmatter.cover_image[0]}
           alt="Project image"
         />
       </picture>

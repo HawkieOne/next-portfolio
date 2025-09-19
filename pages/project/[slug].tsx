@@ -64,10 +64,10 @@ export default function PostPage({
             </div>
 
             <picture className="h-32 lg:h-96 self-center my-5 rounded-lg">
-              <source srcSet={cover_image[1]} />
+              <source srcSet={'/' + cover_image[1]} />
               <img
                 className="h-32 lg:h-96 self-center my-5 rounded-lg"
-                src={cover_image[0]}
+                src={'/' + cover_image[0]}
                 alt="Project image"
               />
             </picture>
