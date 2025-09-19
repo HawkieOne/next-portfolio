@@ -2,7 +2,7 @@
 title: 'Spotify Clone'
 date: 'October 2021'
 excerpt: 'A visual clone of Spotify web app to improve my skills in frontend development'
-cover_image: ['/images/projects/spotify.webp', '/images/projects/spotify.avif']
+cover_image: ['images/projects/spotify.webp', 'images/projects/spotify.avif']
 github: 'https://github.com/HawkieOne/spotify-clone'
 
 description: A visual clone of Spotify web app to improve my skills in frontend development. The web applciation mimics the UI of Spotify and gives most of the features that Spotify uses through Spotify's API. To work, Spotify needs to be open on a device due to limitations in Spotify's Web API.

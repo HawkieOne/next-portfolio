@@ -2,7 +2,7 @@
 title: 'Thirty'
 date: 'Summer 2020'
 excerpt: 'A mobile dice game which rules are similar to Yatzy'
-cover_image: ['/images/projects/thirty.webp', '/images/projects/thirty.avif']
+cover_image: ['images/projects/thirty.webp', 'images/projects/thirty.avif']
 github: 'https://github.com/HawkieOne/thirty'
 
 description: Thirty is a mobile game which is similar to Yatzy. It was my very first application made on Android. The app is very simple but I am still very proud of it since it had some fancy function like color coding of the results. The app is made in Java with Android Studio.

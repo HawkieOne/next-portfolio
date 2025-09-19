@@ -3,7 +3,7 @@ visible: "false"
 title: 'Memory Game'
 date: 'March 4, 2021'
 excerpt: 'A simple memory game'
-cover_image: '/images/projects/spotifyBig.png'
+cover_image: 'images/projects/spotifyBig.png'
 github: 'https://github.com/HawkieOne/memorygame'
 ---
 

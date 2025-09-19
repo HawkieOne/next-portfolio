@@ -2,7 +2,7 @@
 title: 'Instagram Clone'
 date: 'November 2021'
 excerpt: 'A visual clone of Instagram web app to improve my skills in frontend development.'
-cover_image: ['/images/projects/instagram.webp', '/images/projects/instagram.avif']
+cover_image: ['images/projects/instagram.webp', 'images/projects/instagram.avif']
 github: 'https://github.com/HawkieOne/instagram-clone'
 
 description: 'A visual clone of Instagram web app to improve my skills in frontend development. In the project some new libraries are explored. These include Firebase for database management, Next Auth with Google authorization, Recoil for React state management, HeadlessUI for visual components and React Moment for showing relevant timestamps.'

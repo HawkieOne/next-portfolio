@@ -2,7 +2,7 @@
 title: 'Wordle Clone'
 date: 'Spring 2022'
 excerpt: 'A visual clone of Wordle just for fun'
-cover_image: ['/images/projects/wordle.webp', '/images/projects/wordle.avif']
+cover_image: ['images/projects/wordle.webp', 'images/projects/wordle.avif']
 github: 'https://github.com/HawkieOne/wordle-clone'
 demo: 'https://wordle.hawkie.me/'
 

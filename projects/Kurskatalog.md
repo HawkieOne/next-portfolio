@@ -2,7 +2,7 @@
 title: 'Kurskatalog'
 date: 'Winter 2022-2023'
 excerpt: 'A visual which gives students the opportunity to plan the education.'
-cover_image: ['/images/projects/kurskatalog.webp', '/images/projects/kurskatalog.avif']
+cover_image: ['images/projects/kurskatalog.webp', 'images/projects/kurskatalog.avif']
 demo: 'https://kurskatalog.hawkie.me/'
 
 description: 'A visual which gives students the opportunity to plan the education. It offers an extensive drag and drop movement of courses and students can plan can efficiently plan their education over several years. Custom courses is supported as well as special blocks like exchange studies or pause in their education. The tool was done as an replacement to an old system which required both students and teachers to enter the plan in a Microsoft Word document.'
