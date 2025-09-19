@@ -1,1 +1,0 @@
-npm run export && rsync -avzh ./_static/ cpanel:hakanlindahl.com
