@@ -32,7 +32,7 @@ export const pdfCVpath = "/CV/CV 2025.pdf";
 // ]
 
 export const resumeItems: ResumeItem[] = [
-  {title: 'Tactel', location: 'Umeå', year: 2025, description: 'In february I started as Release Train Engineer(RTE) alongside my role as system' +
+  {title: 'Tactel', location: 'Umeå', year: 2025, description: 'In february I started as Release Train Engineer(RTE) alongside my role as system ' +
     'developer. As RTE I work closely with product owners and scrum masters to plan and coordinate PI Plannings following the SAFe framework.'},
   {title: 'Tactel', location: 'Umeå', year: 2023, description: 'Began working at Tactel full time in one of their projects. I work ' + 
   'with development of IFE systems in Kotlin and Android.'},
@@ -44,17 +44,17 @@ export const resumeItems: ResumeItem[] = [
   'The master thesis was about customizing the WCAG guidelines to work for IFE systems. This resulted in IFCAG -  a customized set of guidelines ' + 
   'designed to work for IFE systems.'},
   {title: 'Tactel - Part Time', location: 'Umeå', year: 2022, description: 'After the summer I continued working part time for Tactel. The task ' +
-  'was to maintain an develop new features for a simulating flight routes for one of their products. This was a fullstack project where ' + 
-  'I was responsible for alla parts of the simulator'},
-  {title: 'Tactel - Summerjob', location: 'Umeå', year: 2022, description: 'During the summer I worked at Tactel on a project based connected  ' + 
+  'was to maintain and develop new features for a tool simulating flight routes for one of their products. This was a fullstack project where ' + 
+  'I was responsible for all parts of the tool.'},
+  {title: 'Tactel - Summer Job', location: 'Umeå', year: 2022, description: 'During the summer I worked at Tactel on a project based connected  ' + 
   'to IFE systems on aircrafts. The work was frontend in ReactJS and together with a team which worked in agile sprints.'},
   {title: 'Livsmedicin', location: 'Umeå', year: 2021, description: 'During the summer I worked at Livsmedicin on a project ' + 
   'that will prevent injuries for persons that spend a lot of time at the computer.'},
   {title: 'Studies', location: 'Umeå university', year: 2020, description: 'During 2020 I put a lot of time on my studies and on top of ' +
   'that the pandemic started this year so I have concentrated on educating myself' + 
   ' in the subjects that interest me. Some of these subjects are Java, ASP.NET, React and Unity.'},
-  {title: 'Student ambassador', location: 'ALTEN', year: 2019, description: 'As a student ambassador I coordinate events and activities ' +
-  'aimed at students at Umeå university. This is ' + 
+  {title: 'Student ambassador', location: 'ALTEN', year: 2019, description: 'As a student ambassador I coordinated events and activities ' +
+  'aimed at students at Umeå university. This was ' + 
   'done together with other student ambassadors and ALTEN to increase the knowledge of ALTEN among students at the university.'},
   {title: 'Tutor', location: 'Umeå Unversity', year: 2019, description: 'Together with another student I taught an introduction ' + 
   'course in algebra to new students at the university. The responsibilities ' + 
