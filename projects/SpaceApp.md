@@ -3,7 +3,8 @@ title: 'SpacQ'
 date: '2022'
 excerpt: 'A website with information about space - future launches, previous launches and everything between'
 cover_image: ['images/projects/spaceapp.gif', 'images/projects/spaceapp.gif']
-demo: 'https://spaceapp.hawkie.me/'
+github: 'https://github.com/HawkieOne/space-app'
+demo: 'https://spacq.hakanlindahl.com/'
 
 description: 'Space is an exciting area to read about. There is alot of events about space and space travel that is easily missed. On this website you can read about pretty much every space event that has happened and all future planned events as well. Enjoy seamless continous loading of new events as you scroll down. In addition, you can read about astronauts, spacecrafts, launch locations, and launch vehicles. In every category you can also search for a specific event.'
 built: [
