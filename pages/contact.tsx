@@ -18,7 +18,7 @@ export default function Contact() {
         className="h-full text-secondary dark:text-secondary-dark 
                       flex flex-col items-center justify-around 2xl:justify-around 2xl:space-y-12 basis-full xl:basis-1/2"
       >
-        <div className="flex justify-center space-x-4 items-center pt-8 md:pt-0 justify-self-start">
+        <div className="flex justify-center space-x-4 items-center md:pt-0 justify-self-start">
           <span className="rounded-md w-12 md:w-24 h-1 bg-highlight"></span>
           <div className="text-secondary dark:text-secondary-dark text-2xl md:text-4xl lg:text-6xl font-bold flex">
             <AnimatedWord word="Contact me" />
