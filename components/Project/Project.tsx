@@ -99,7 +99,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <picture
         className="rounded-lg lg:row-start-3 
         lg:row-end-7 lg:col-start-4 lg:col-end-10
-        row-start-5 row-end-8 col-start-1 col-end-4"
+        row-start-5 row-end-7 col-start-1 col-end-4"
       >
         <source
           srcSet={'/' + project.frontmatter.cover_image[1]}
@@ -112,7 +112,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
           src={'/' + project.frontmatter.cover_image[0]}
           alt="Project image"
         />
-      </picture>
+      </picture>a
 
       <div
         className="lg:flex flex-col space-y-8 row-start-3 row-end-5 col-start-2 col-end-2
