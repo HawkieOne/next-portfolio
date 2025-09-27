@@ -29,7 +29,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <div
         className="flex flex-col items-start space-y-4 md:space-y-6 
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
-                      row-start-3 row-end-4 col-start-1 col-end-4"
+                      row-start-2 row-end-3 col-start-1 col-end-4"
       >
         <h1
           className="font-bold text-xl md:text-2xl lg:text-6xl text-accent"
@@ -99,7 +99,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <picture
         className="rounded-lg lg:row-start-3 
         lg:row-end-7 lg:col-start-4 lg:col-end-10
-        row-start-4 row-end-8 col-start-1 col-end-4"
+        row-start-5 row-end-8 col-start-1 col-end-4"
       >
         <source
           srcSet={'/' + project.frontmatter.cover_image[1]}
@@ -115,13 +115,13 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       </picture>
 
       <div
-        className="hidden lg:flex flex-col space-y-8
+        className="lg:flex flex-col space-y-8 row-start-3 row-end-5 col-start-2 col-end-2
                       lg:row-start-6 lg:row-end-6 lg:col-start-11 lg:col-end-11"
       >
         <div className="flex flex-col space-y-4 self-start">
-          <span className="rounded-md w-24 md:w-48 h-1 md:ml-8 bg-highlight"></span>
-          <span className="rounded-md w-24 md:w-48 h-1 bg-accent"></span>
-          <span className="rounded-md w-24 md:w-48 h-1 md:ml-8 bg-highlight"></span>
+          <span className="rounded-md w-48 h-1 -ml-16 md:ml-8 bg-highlight"></span>
+          <span className="rounded-md w-48 h-1 -ml-8 md:ml-0 bg-accent"></span>
+          <span className="rounded-md w-48 h-1 -ml-16 md:ml-8 bg-highlight"></span>
         </div>
       </div>
 
@@ -142,11 +142,10 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <div
         className="flex justify-center xl:justify-end items-end 
                       lg:row-start-7 lg:row-end-7 lg:col-start-11 lg:col-end-11
-                      row-start-1 row-end-1 col-start-2 col-end-2"
+                      row-start-0 row-end-1 col-start-2 col-end-2"
       >
-        <h1 className="font-bold text-4xl lg:text-8xl xl:text-9xl text-accent">
-          {index < 9 ? 0 : ""}
-          {index + 1}
+        <h1 className="font-bold text-6xl lg:text-8xl xl:text-9xl text-accent">
+          {index < 9 ? 0 : ""}{index + 1}
         </h1>
       </div>
     </div>
