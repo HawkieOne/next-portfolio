@@ -112,7 +112,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
           src={'/' + project.frontmatter.cover_image[0]}
           alt="Project image"
         />
-      </picture>a
+      </picture>
 
       <div
         className="lg:flex flex-col space-y-8 row-start-3 row-end-5 col-start-2 col-end-2
