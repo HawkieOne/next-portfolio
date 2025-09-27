@@ -24,11 +24,12 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
   };
 
   return (
-    <div className="h-screen grid grid-cols-3 grid-rows-7 lg:grid-cols-10 lg:grid-rows-7 px-8 py-4 relative">
+    <div className="h-screen grid grid-cols-3 grid-rows-7
+     lg:grid-cols-10 lg:grid-rows-7 px-8 py-4 relative">
       <div
         className="flex flex-col items-start space-y-4 md:space-y-6 
                       lg:row-start-1 lg:row-end-2 lg:col-start-1 lg:col-end-10
-                      row-start-1 row-end-2 col-start-1 col-end-4"
+                      row-start-3 row-end-4 col-start-1 col-end-4"
       >
         <h1
           className="font-bold text-xl md:text-2xl lg:text-6xl text-accent"
@@ -98,7 +99,7 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <picture
         className="rounded-lg lg:row-start-3 
         lg:row-end-7 lg:col-start-4 lg:col-end-10
-        row-start-4 row-end-7 col-start-1 col-end-4"
+        row-start-4 row-end-8 col-start-1 col-end-4"
       >
         <source
           srcSet={'/' + project.frontmatter.cover_image[1]}
@@ -141,9 +142,9 @@ export default function Project({ project, index, maxIndex }: ProjectProps) {
       <div
         className="flex justify-center xl:justify-end items-end 
                       lg:row-start-7 lg:row-end-7 lg:col-start-11 lg:col-end-11
-                      row-start-2 row-end-2 col-start-2 col-end-2"
+                      row-start-1 row-end-1 col-start-2 col-end-2"
       >
-        <h1 className="font-bold md:text-4xl lg:text-8xl xl:text-9xl text-accent">
+        <h1 className="font-bold text-4xl lg:text-8xl xl:text-9xl text-accent">
           {index < 9 ? 0 : ""}
           {index + 1}
         </h1>

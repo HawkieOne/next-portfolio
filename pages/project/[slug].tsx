@@ -53,10 +53,10 @@ export default function PostPage({
           </LinkButtton>
 
           <div
-            className="flex flex-col space-y-6 px-0 md:px-4 py-5 rounded-b-xl shadow-lg
+            className="flex flex-col space-y-6 px-3 md:px-4 py-5 rounded-b-xl shadow-lg
                           border-t-4 border-accent-dark"
           >
-            <h1 className="text-4xl font-bold">{title}</h1>
+            <h1 className="text-4xl font-bold ">{title}</h1>
 
             {/* Date banner */}
             <div className="font-semibold bg-gray-600 py-2 px-4 text-primary">
